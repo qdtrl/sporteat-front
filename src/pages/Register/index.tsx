@@ -67,7 +67,7 @@ const Register = () => {
 		event.preventDefault();	
 		console.log(userCreate);
 		
-		post('/api/signup', userCreate);
+		post('/api/signup', { user: userCreate });
 	}
 	
 	const handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement> | any) => {
