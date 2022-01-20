@@ -18,8 +18,8 @@ const Register = () => {
 
 	const [userCreate, setUserCreate ] = useState(
     { 
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       password: "",
 			passwordConfirmation: ""
@@ -65,8 +65,7 @@ const Register = () => {
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();	
-		console.log(userCreate);
-		
+				
 		post('/api/signup', { user: userCreate });
 	}
 	
@@ -92,8 +91,8 @@ const Register = () => {
 										type="text"
 										placeholder=' Prenom'
 										onChange={handleChange}
-										name="lastName"
-										value={userCreate.lastName}
+										name="lastname"
+										value={userCreate.lastname}
 										className="input"
 									/>
 								</div>
@@ -104,8 +103,8 @@ const Register = () => {
 										type="text"
 										placeholder=' Nom'
 										onChange={handleChange}
-										name="firstName"
-										value={userCreate.firstName}
+										name="firstname"
+										value={userCreate.firstname}
 										className="input"
 									/>	
 								</div>						
