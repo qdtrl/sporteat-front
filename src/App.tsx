@@ -22,7 +22,7 @@ import NoMatch from './pages/NoMatch';
 
 const App = (): JSX.Element => {
   const user:any = useSelector((state) => state);
-  const { headers } = useFetch(true);
+  const { headers }:any = useFetch(true);
   const dispatch = useDispatch();
 
 	const getUser = () => {

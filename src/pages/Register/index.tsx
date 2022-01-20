@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { LOGIN } from '../../stores/actions';
-import {Field} from '../../components/Fields';
 import { REGEX } from '../../config/config';
 import { Link } from "react-router-dom";
 import Alerts from '../../components/Alerts';
@@ -16,6 +15,7 @@ const Register = () => {
 	const user:any = useSelector((state) => state);
 	const history = useHistory();
 	const dispatch = useDispatch();
+	const [	canBeSubmit, setCanBeSubmit ] = useState(false);
 
 	const [userCreate, setUserCreate ] = useState(
     { 
@@ -23,6 +23,7 @@ const Register = () => {
       lastName: "",
       email: "",
       password: "",
+			passwordConfirmation: ""
     }
   )
 	
@@ -33,7 +34,7 @@ const Register = () => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [user])
 
-	const { error, responseData , token, post} = useFetch();
+	const { error, responseData , token, post}:any = useFetch();
 	
 	useEffect(() => {
 		if (responseData && !error) {
@@ -42,6 +43,27 @@ const Register = () => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [responseData]);	
+
+	const checkEmailFormat = () => {
+		const test = userCreate.email.match(REGEX);
+		console.log(test);
+		
+		return  test ? true : false
+	}
+
+	const checkPasswordsFormat = () => {
+		const { password, passwordConfirmation } = userCreate;
+		if(password.length > 6 && password === passwordConfirmation)
+			return true
+		else
+			return false
+	}
+	
+	useEffect(() => {
+		if(checkEmailFormat() && checkPasswordsFormat()) 
+			setCanBeSubmit(true);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [userCreate])
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();	
@@ -58,29 +80,6 @@ const Register = () => {
       }
     })
   }
-	// const [emailError, setEmailError] = useState("");
-	// const emailUpdate = (e:any) => {
-	// 	if(!e.target.value.match(REGEX)){
-	// 		setEmailError("Veuillez renseigner un e-mail valide.");
-	// 	} else {
-	// 		setEmailError("");
-	// 	}
-	// }
-
-		// if(e.target.value.length < 6){
-		// 	setPasswordError("Veuillez renseigner un mot de passe d'au moins 6 caractères");
-		// } else {
-		// 	setPasswordError("");
-		// }		
-	// const [passwordConfirmation, setPasswordConfirmation] = useState("");
-	// const [passwordConfirmationError, setPasswordConfirmationError] = useState("");
-	// const updatePasswordConfirmation = (e:any) => {
-	// 	setPasswordConfirmation(e.target.value);
-	// 	if(e.target.value !== password){
-	// 		setPasswordConfirmationError("Le mot de passe et sa confirmation doivent être identiques");
-	// 	} else {
-	// 		setPasswordConfirmationError("");
-	// 	}
 		
 	return (
 			<section className="signup-form">
@@ -89,62 +88,76 @@ const Register = () => {
 					<form onSubmit={handleSubmit}>
 						<div className="form-container">
 							<div className="half">
-								<input 
-									type="text"
-									placeholder='LastName'
-									onChange={handleChange}
-									name="lastName"
-									value={userCreate.lastName}
-								/>
+								<div className='field'>
+									<input 
+										type="text"
+										placeholder='LastName'
+										onChange={handleChange}
+										name="lastName"
+										value={userCreate.lastName}
+										className="input"
+									/>
+								</div>
 							</div>
 							<div className="half">
-								<input 
-									type="text"
-									placeholder='FirstName'
-									onChange={handleChange}
-									name="firstName"
-									value={userCreate.firstName}
-								/>							
+								<div className='field'>
+									<input 
+										type="text"
+										placeholder='FirstName'
+										onChange={handleChange}
+										name="firstName"
+										value={userCreate.firstName}
+										className="input"
+									/>	
+								</div>						
 							</div>
 						</div>
 						<div className="form-container">
 							<div className="full">
-								<input 
-									type="email"
-									placeholder='Email'
-									onChange={handleChange}
-									name="email"
-									value={userCreate.email}
-								/>							
+								<div className='field'>
+									<input 
+										type="email"
+										placeholder='Email'
+										onChange={handleChange}
+										name="email"
+										value={userCreate.email}
+										className="input"
+									/>	
+								</div>						
 							</div>
 						</div>
 						<div className="form-container">
 							<div className="half">
-								<input 
-									type="password"
-									placeholder='Mot de passe'
-									onChange={handleChange}
-									name="password"
-									value={userCreate.password}
-								/>						
+								<div className='field'>
+									<input 
+										type="password"
+										placeholder='Mot de passe'
+										onChange={handleChange}
+										name="password"
+										value={userCreate.password}
+										className="input"
+									/>
+								</div>						
 							</div>
 							<div className="half">
-								<input 
-									type="password"
-									placeholder='Mot de passe'
-									onChange={handleChange}
-									name="password"
-									value={userCreate.password}
-								/>						
+								<div className='field'>
+									<input 
+										type="password"
+										placeholder='Mot de passe'
+										onChange={handleChange}
+										name="password"
+										value={userCreate.password}
+										className="input"
+									/>		
+								</div>				
 							</div>
 						</div>
 						<div className="btn-container">
-							<button type="submit" className={`btn ${
-								false?
-								"btn-error"
-								:
-								""
-							}`}>S'inscrire</button>
+							<button 
+								type="submit" 
+								className={`btn ${canBeSubmit ? "" : "btn-error"}`}>
+									S'inscrire
+							</button>
 						</div>
 						<div className="link-already-signup">
 							<Link to="/login">
@@ -154,7 +167,6 @@ const Register = () => {
 					</form>
 					{error && <Alerts type={"error"} message={error}/>}
 				</div>
-
 			</section>
 	)
 }
