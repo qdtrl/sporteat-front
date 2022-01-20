@@ -1,4 +1,4 @@
-.signup-form, .login-form{
+.signup-form, .login-form {
     width: 55%;
     margin: 0 auto;
     padding-top: 20vh;
@@ -13,11 +13,14 @@
         height: 7vh;
         display: flex;
         align-items: center;
+        justify-content: space-around;
         margin: 2em 0;
-
+        // input {
+        //     padding-left: 0.5rem;
+        // }
+        
         .half{
             width: 40%;
-            margin: 0 auto;
         }
         .full{
             width: 90%;
@@ -28,25 +31,24 @@
 }
 
 .signup-container{
-   padding: 10px;
+    background-color:  $primary-background;
+    padding: 10px;
 }
 
 .btn {
     padding: .5em 1em;
     color: $primary-color;
-    background-color: $primary-background;
-    border-radius: 20px;    
+    background-color: $tercary-color;
     font-size: 1.1em;
     border: none;
-}
-.btn:hover {
-    color: $primary-background;
-    background-color: $primary-color;
-    border: solid 1px $primary-background;
+
+    &:hover {
+        color: $secondary-color;
+    }
 }
 
 .btn-error{
-    pointer-events: none;
+    // pointer-events: none;  
     border: solid $tercary-color 2px !important;
 }
 .btn-container{
@@ -56,8 +58,15 @@
 }
 
 .link-already-signup, .link-already-signup:active{
+    a {
+        color: $secondary-color;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     display: flex;
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 2vh;
     margin-bottom: 2vh;
 }

@@ -11,9 +11,11 @@ export const useFetch = ( withAuth = false ) => {
   const headers:Record<string, string> = { 
     'Content-Type': 'application/json',
    };
+   
   if (withAuth && token) {
     headers.Authorization = token;
   }
+
   const get = (path:string) => {
     setIsLoading(true);
     setError(null);

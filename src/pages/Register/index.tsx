@@ -4,11 +4,10 @@ import {
 	ChangeEvent,
 	FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { LOGIN } from '../../stores/actions';
 import { REGEX } from '../../config/config';
-import { Link } from "react-router-dom";
 import Alerts from '../../components/Alerts';
 
 const Register = () => {
@@ -44,11 +43,8 @@ const Register = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [responseData]);	
 
-	const checkEmailFormat = () => {
-		const test = userCreate.email.match(REGEX);
-		console.log(test);
-		
-		return  test ? true : false
+	const checkEmailFormat = () => {		
+		return  userCreate.email.match(REGEX) ? true : false
 	}
 
 	const checkPasswordsFormat = () => {
@@ -59,24 +55,27 @@ const Register = () => {
 			return false
 	}
 	
-	useEffect(() => {
+	useEffect(() => {		
 		if(checkEmailFormat() && checkPasswordsFormat()) 
 			setCanBeSubmit(true);
+		else
+			setCanBeSubmit(false);
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [userCreate])
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();	
+		console.log(userCreate);
 		
 		post('/api/signup', userCreate);
 	}
 	
 	const handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement> | any) => {
     setUserCreate( prevUserData => {
-      const { name, value, type } = event.target;
+      const { name, value } = event.target;
       return {
         ...prevUserData,
-        [name]: type === value
+        [name]: value
       }
     })
   }
@@ -91,7 +90,7 @@ const Register = () => {
 								<div className='field'>
 									<input 
 										type="text"
-										placeholder='LastName'
+										placeholder=' Prenom'
 										onChange={handleChange}
 										name="lastName"
 										value={userCreate.lastName}
@@ -103,7 +102,7 @@ const Register = () => {
 								<div className='field'>
 									<input 
 										type="text"
-										placeholder='FirstName'
+										placeholder=' Nom'
 										onChange={handleChange}
 										name="firstName"
 										value={userCreate.firstName}
@@ -117,7 +116,7 @@ const Register = () => {
 								<div className='field'>
 									<input 
 										type="email"
-										placeholder='Email'
+										placeholder=' Email'
 										onChange={handleChange}
 										name="email"
 										value={userCreate.email}
@@ -131,7 +130,7 @@ const Register = () => {
 								<div className='field'>
 									<input 
 										type="password"
-										placeholder='Mot de passe'
+										placeholder=' Mot de passe'
 										onChange={handleChange}
 										name="password"
 										value={userCreate.password}
@@ -143,10 +142,10 @@ const Register = () => {
 								<div className='field'>
 									<input 
 										type="password"
-										placeholder='Mot de passe'
+										placeholder=' Confirmez le mot de passe'
 										onChange={handleChange}
-										name="password"
-										value={userCreate.password}
+										name="passwordConfirmation"
+										value={userCreate.passwordConfirmation}
 										className="input"
 									/>		
 								</div>				
@@ -156,7 +155,7 @@ const Register = () => {
 							<button 
 								type="submit" 
 								className={`btn ${canBeSubmit ? "" : "btn-error"}`}>
-									S'inscrire
+									Nous rejoindre
 							</button>
 						</div>
 						<div className="link-already-signup">

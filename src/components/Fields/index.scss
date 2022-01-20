@@ -1,15 +1,13 @@
-.field{
+.field {
     position: relative;
     .input{
        &:focus{
             outline: none;
         }
-        &:hover{ transform : rotate(0) !important;
-        }
         height: 2em;
-        border-radius: 2em;
         width: 100%;
-        padding: 0 1em;
+        padding: 0;
+        margin: 0;
     }
     .label{
        position: absolute;
@@ -24,10 +22,7 @@
         font-weight: bold;
         padding: 0 .5em;
     }
-    .input:not(:placeholder-shown) + .label, .input:focus + .label{
-        transform: translateY(-85%) translateX(1.5em);
-        border-radius: 2em;
-    }
+
     textarea.input{
         height: 30vh;
         max-height: 100%;
@@ -43,7 +38,7 @@
     }
 }
 
-.error{
+.error {
     .input{
         background-color: $tercary-color;
         border: solid 2px $tercary-color;
@@ -62,7 +57,5 @@
         padding: 0.25em .5em;
         margin: .5em;
         cursor: pointer;
-        border-radius: 50px;
-
     }
 }
