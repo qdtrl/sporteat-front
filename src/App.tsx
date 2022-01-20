@@ -35,7 +35,7 @@ const App = (): JSX.Element => {
         dispatch({ type: GET_USER, data });
       }
 		})
-    .catch((error) => dispatch({ type: LOGOUT }))
+    .catch(() => dispatch({ type: LOGOUT }))
   }
 
   useEffect(() => {
@@ -46,43 +46,33 @@ const App = (): JSX.Element => {
 	}, [])
 
   return (
-      
-      <Router>
-        { user.isLogged ?  <MenuProfile/> : <MenuHome/> }
-        <Switch>
-          <Route path="/login" exact>
-            <Login/>
-          </Route>
-          <Route path="/signup" exact>
-            <Register/>
-          </Route>
-          <Route path="/informations" exact>
-            { user.isLogged ? <ProfileInformations/> : <Home/> }
-          </Route>
-          { user.isLogged &&
-            <Route path="/parameters" exact>
-              <UpdateRegister/>  
-            </Route> 
-          }
-          <Route path="/">
-            { user.isLogged ? <Profile/> : <Home/> }
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
-
-        </Switch>
-        <Footer/>
-      </Router>      
-   
-
+    <Router>
+      { user.isLogged ?  <MenuProfile/> : <MenuHome/> }
+      <Switch>
+        <Route path="/login" exact>
+          <Login/>
+        </Route>
+        <Route path="/signup" exact>
+          <Register/>
+        </Route>
+        <Route path="/informations" exact>
+          { user.isLogged ? <ProfileInformations/> : <Home/> }
+        </Route>
+        { user.isLogged &&
+          <Route path="/parameters" exact>
+            <UpdateRegister/>  
+          </Route> 
+        }
+        <Route path="/">
+          { user.isLogged ? <Profile/> : <Home/> }
+        </Route>
+        <Route>
+          <NoMatch />
+        </Route>
+      </Switch>
+      <Footer/>
+    </Router>      
   );
 };
 
 export default App;
-
-
-/*
-entrainement du jour !
-
-*/

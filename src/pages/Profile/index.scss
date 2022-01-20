@@ -4,7 +4,6 @@
 }
 
 .profile-menu{
-    @include glass (0.15);
     position: sticky;
     top: 20px;
     width: 15vw;
@@ -33,7 +32,6 @@
     flex-direction: column;
 }
 .profile-picture-container{
-    @include glass (0.1);
     height: 60px;
     width: 60px;
     border-radius: 180px;

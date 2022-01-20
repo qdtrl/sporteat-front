@@ -1,8 +1,7 @@
 .field{
     position: relative;
     .input{
-        @include glass(0.2);
-        &:focus{
+       &:focus{
             outline: none;
         }
         &:hover{ transform : rotate(0) !important;
@@ -13,8 +12,7 @@
         padding: 0 1em;
     }
     .label{
-        @include glass(0.2);
-        position: absolute;
+       position: absolute;
         top: 0;
         left: 0;
         height: 90%;
@@ -60,7 +58,6 @@
     align-items: center;
     justify-content: center;
     .btn{
-        @include glass(0.3);
         font-size: 1.5em;
         padding: 0.25em .5em;
         margin: .5em;

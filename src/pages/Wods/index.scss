@@ -4,21 +4,18 @@
     width: 55vw;
     margin: 1em auto;
     padding: 2em 1em;
-    @include glass(0.2);
-    color: $primary-background;
+   color: $primary-background;
     .workout-selector-container{
         width: 100%;
         display: flex;
         justify-content: space-around;
         .workout-selector{
             padding: 2em 1em;
-            @include glass(0.2);
-        }
+               }
     }
     .line{
         width: 90%;
         margin: 1em auto;
-        @include glass(0.2);
         
         &:hover{
             transform: none;
@@ -50,7 +47,6 @@
                 width: 90%;
                 margin: 1em auto;
                 .exo{
-                    @include glass(0.2);
                     padding: 1em 2em;
                     margin: 1em auto;
                     h3{

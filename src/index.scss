@@ -1,6 +1,5 @@
 @import './config/config';
 
-@import './config/glassmorphism.scss';
 @import './components/Layout/NavBar/NavHome/';
 @import './components/Layout/NavBar/NavProfile/';
 @import './components/Layout/Footer/';
@@ -8,9 +7,9 @@
 @import './components/Alerts/';
 
 @import './pages/Home';
-@import './pages/Home/presentation/index.scss';
+@import './pages/Home/presentation/';
 @import './pages/formsLayout.scss';
-@import './pages/Wods/index.scss';
+@import './pages/Wods/';
 @import './pages/Mod/';
 @import './pages/Home/presentation/';
 @import './pages/formsLayout.scss';
@@ -18,4 +17,4 @@
 @import './pages/Wods/';
 @import './pages/NoMatch/';
 @import './pages/MyEquipement/';
-@import './pages/Profile/Informations/index.scss'
+@import './pages/Profile/Informations/'
