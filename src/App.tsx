@@ -10,7 +10,6 @@ import { GET_USER, LOGOUT } from './stores/actions';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Register from './pages/Register';
 import Profile from './pages/Profile';
 import MenuProfile from './components/Layout/NavBar/NavProfile/index';
 import MenuHome from './components/Layout/NavBar/NavHome';
@@ -51,9 +50,6 @@ const App = (): JSX.Element => {
       <Switch>
         <Route path="/login" exact>
           <Login/>
-        </Route>
-        <Route path="/signup" exact>
-          <Register/>
         </Route>
         <Route path="/informations" exact>
           { user.isLogged ? <ProfileInformations/> : <Home/> }

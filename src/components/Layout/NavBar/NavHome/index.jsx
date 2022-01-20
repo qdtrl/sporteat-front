@@ -28,20 +28,12 @@ const MenuHome = () => {
 
     return (
         <nav className={`nav-home ${navToggle? "scrolledNavbar" : ""}`} >
-                      
             <Link className="nav-left" to="/">                
                 <img className="logo" src={logo} alt="logo" />
                 <div className="text-logo">         
                     <div className="sport">Sport</div><div className="eat">eat</div>
                 </div>
             </Link>
-            
-            <div className="nav-right">
-                <Link className="navItems" to="/signup">
-                    Nous rejoindre
-                </Link>                
-            </div>
-        
         </nav>
     )
 }

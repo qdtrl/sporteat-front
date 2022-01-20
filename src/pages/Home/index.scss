@@ -20,7 +20,9 @@ body {
     padding-top: 140px;
     margin-bottom: 30px;
 }
+
 .card-homepage {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,21 +31,33 @@ body {
 }
 
 .container-icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    display: flexbox;
+    
 }
 .cards, cards:visited{
+    background-color: $primary-background;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     width: 25vw;
+    height: 25vw;
     text-decoration: none;
-    color: inherit;
+    margin: 1.5rem;
+    border-radius: 0.5rem;
 
-    .card {
+    h3 {
+        margin: 2rem;
+    }
+    .text {
+        padding: 2rem;
+    }
+    h4 {
+        margin: 0;
+    }
+
+    .image {
+        position: relative;
         border-radius: 100px;
         width: 100px;
         height: 100px;
@@ -51,20 +65,23 @@ body {
         text-align: center;
         justify-content: center;
         align-items: center;
-        
     }
 
     
 }
 
 .header{
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-direction: column;
-    margin-bottom: 90px;
+    // flex-direction: column;
+    .jumbotron {
+        width: 50%;
+    }
 }
+
     .hp-cta{
         background-color: $tercary-color;
         color: $secondary-background;
