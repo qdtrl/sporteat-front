@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useFetch } from '../../hooks/useFetch';
-import { UPDATE } from '../../stores/actions';
-import {Field} from '../../components/Fields';
-import { REGEX } from '../../config/config';
-import Alerts from '../../components/Alerts';
+import { useFetch } from '../../../hooks/useFetch';
+import { UPDATE } from '../../../stores/actions';
+import {Field} from '../../../components/Fields';
+import { REGEX } from '../../../config/config';
+import Alerts from '../../../components/Alerts';
 
 const UpdateRegister = () => {
 	const dispatch = useDispatch();

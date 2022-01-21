@@ -8,14 +8,14 @@ import { useFetch } from './hooks/useFetch';
 import { API_URL } from './config/config';
 import { GET_USER, LOGOUT } from './stores/actions';
 
-import Home from './pages/Home';
-import Login from './pages/Login';
+import Home from './pages/Visitors/HomePage';
+import Login from './pages/Visitors/Login';
 import Profile from './pages/Profile';
 import MenuProfile from './components/Layout/NavBar/NavProfile/index';
 import MenuHome from './components/Layout/NavBar/NavHome';
 import { Footer } from './components/Layout/Footer';
 import ProfileInformations from './pages/Profile/Informations';
-import UpdateRegister from './pages/UpdateRegister';
+import UpdateRegister from './pages/Profile/UpdateRegister';
 import NoMatch from './pages/NoMatch';
 
 

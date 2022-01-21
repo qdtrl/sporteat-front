@@ -5,10 +5,10 @@ import {
 	FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
-import { LOGIN } from '../../stores/actions';
-import { REGEX } from '../../config/config';
-import Alerts from '../../components/Alerts';
+import { useFetch } from '../../../hooks/useFetch';
+import { LOGIN } from '../../../stores/actions';
+import { REGEX } from '../../../config/config';
+import Alerts from '../../../components/Alerts';
 
 const Register = () => {
 	const user:any = useSelector((state) => state);

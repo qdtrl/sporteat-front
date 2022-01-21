@@ -4,7 +4,6 @@ import Wods from '../Wods';
 import Mod from '../Mod';
 import NoMatch from '../../pages/NoMatch';
 import WodsProgress from '../WodsProgress/'
-
 import { 
 	Switch,
 	Route } from "react-router-dom";

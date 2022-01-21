@@ -1,6 +1,6 @@
-import workoutImage from '../../../assets/icons/workout.png';
-import menuImage from '../../../assets/icons/menu.png';
-import followupImage from '../../../assets/icons/followup.png';
+import workoutImage from '../../../../assets/icons/workout.png';
+import menuImage from '../../../../assets/icons/menu.png';
+import followupImage from '../../../../assets/icons/followup.png';
 
 
 const PresentationCards = () => {
