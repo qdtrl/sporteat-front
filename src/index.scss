@@ -6,13 +6,18 @@
 @import './components/Fields/';
 @import './components/Alerts/';
 
-@import './pages/Home';
-@import './pages/Home/PresentationCards/';
 @import './pages/formsLayout.scss';
-@import './pages/Wods/';
-@import './pages/Mod/';
-@import './pages/Profile/';
-@import './pages/Wods/';
 @import './pages/NoMatch/';
-@import './pages/MyEquipement/';
-@import './pages/Profile/Informations/'
+
+@import './pages/Visitors/HomePage/';
+@import './pages/Visitors/HomePage/PresentationCards/';
+
+@import './pages/Profile/';
+@import './pages/Profile/Wods/';
+@import './pages/Profile/Mod/';
+@import './pages/Profile/Wods/';
+
+@import './pages/Profile/Informations/';
+@import './pages/Profile/Informations/MyEquipement/';
+@import './pages/Profile/Informations/ComputeInformations';
+// @import './pages/Profile/Informations/UpdateRegister';

@@ -1,4 +1,4 @@
-import { useFetch } from '../../../../hooks/useFetch';
+import { useFetch } from '../../../../../hooks/useFetch';
 
 import Card from './Card/card'
 import CardBuilding from './Card/cardBuilding';

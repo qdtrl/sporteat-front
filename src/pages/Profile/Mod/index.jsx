@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useFetch } from '../../hooks/useFetch'
-import Menu from '../../components/Repas/index';
+import { useFetch } from '../../../hooks/useFetch'
+import Menu from '../../../components/Repas';
 
 
 const Wod = () => {

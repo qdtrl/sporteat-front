@@ -1,4 +1,4 @@
-import {useFetch} from '../../../hooks/useFetch'
+import {useFetch} from '../../../../hooks/useFetch'
 import {useEffect, useState} from 'react';
 import Working from './Working';
 import Work from './Work';

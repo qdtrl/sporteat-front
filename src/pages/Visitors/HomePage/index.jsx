@@ -2,7 +2,7 @@ import Register from "../Register";
 import PresentationCards from './PresentationCards';
 
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<div className="homepage-container">
 			<div className="header">
@@ -21,4 +21,4 @@ const Home = () => {
 	)
 };
 
-export default Home;
+export default HomePage;

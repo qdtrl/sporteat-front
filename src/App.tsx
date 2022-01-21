@@ -8,14 +8,13 @@ import { useFetch } from './hooks/useFetch';
 import { API_URL } from './config/config';
 import { GET_USER, LOGOUT } from './stores/actions';
 
-import Home from './pages/Visitors/HomePage';
+import HomePage from './pages/Visitors/HomePage';
 import Login from './pages/Visitors/Login';
 import Profile from './pages/Profile';
 import MenuProfile from './components/Layout/NavBar/NavProfile/index';
 import MenuHome from './components/Layout/NavBar/NavHome';
 import { Footer } from './components/Layout/Footer';
-import ProfileInformations from './pages/Profile/Informations';
-import UpdateRegister from './pages/Profile/UpdateRegister';
+import Informations from './pages/Profile/Informations';
 import NoMatch from './pages/NoMatch';
 
 
@@ -52,15 +51,10 @@ const App = (): JSX.Element => {
           <Login/>
         </Route>
         <Route path="/informations" exact>
-          { user.isLogged ? <ProfileInformations/> : <Home/> }
+          { user.isLogged ? <Informations/> : <HomePage/> }
         </Route>
-        { user.isLogged &&
-          <Route path="/parameters" exact>
-            <UpdateRegister/>  
-          </Route> 
-        }
         <Route path="/">
-          { user.isLogged ? <Profile/> : <Home/> }
+          { user.isLogged ? <Profile/> : <HomePage/> }
         </Route>
         <Route>
           <NoMatch />

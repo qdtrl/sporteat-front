@@ -3,13 +3,12 @@ import profilePicture from '../../assets/profile-picture.png';
 import informations from '../../assets/icons/informations.png';
 import menu from '../../assets/icons/menu2.png';
 import sport from '../../assets/icons/sport.png';
-import favorite from '../../assets/icons/favorite.png';
+// import favorite from '../../assets/icons/favorite.png';
 import statistics from '../../assets/icons/statistics.png';
 
 
 
 const ProfileMenu = () => {
-    
     return (
         <div className="profile-menu">
             <div className="profile-picture-container">
@@ -39,12 +38,6 @@ const ProfileMenu = () => {
                         <img className="icons-menu" src={informations} alt="icône informations"/>
                         Informations
                     </li>  
-                </Link>
-                <Link className="link-menu" to="/my-equipement">
-                    <li className="items-list-menu">
-                        <img className="icons-menu" src={favorite} alt="icône favoris"/>
-                        Mon équipement
-                    </li> 
                 </Link>
             </ul>
         </div>

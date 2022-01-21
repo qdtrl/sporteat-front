@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../../../hooks/useFetch';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 // import Alerts from "../../components/Alerts";
 

@@ -1,5 +1,4 @@
 export const Field = (props) => {
-    console.log(props);
     return(
         <div className={`field ${(props.error && "error" )|| ""}`}>
         {   
