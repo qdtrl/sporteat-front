@@ -1,12 +1,12 @@
-import ProfileMenu from '../../components/ProfileMenu/index';
+import { 
+	Switch,
+	Route } from "react-router-dom";
+import ProfileMenu from '../../components/ProfileMenu';
 import Informations from './Informations';
 import Wods from './Wods';
 import Mod from './Mod';
 import NoMatch from '../../pages/NoMatch';
 import WodsProgress from './WodsProgress/'
-import { 
-	Switch,
-	Route } from "react-router-dom";
 
 const Profile = () => {
 
@@ -16,7 +16,7 @@ const Profile = () => {
 			<>
 				<Switch>			
 					<Route path="/" exact>
-						{ true ? <Informations/> : <Wods/> }
+						{ false ? <Informations/> : <Wods/> }
 					</Route>
 					<Route path="/meals-of-the-day" >
 						<Mod/>

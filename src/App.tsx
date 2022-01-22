@@ -11,7 +11,6 @@ import { GET_USER, LOGOUT } from './stores/actions';
 import HomePage from './pages/Visitors/HomePage';
 import Login from './pages/Visitors/Login';
 import Profile from './pages/Profile';
-import MenuProfile from './components/Layout/NavBar/NavProfile/index';
 import MenuHome from './components/Layout/NavBar/NavHome';
 import { Footer } from './components/Layout/Footer';
 import Informations from './pages/Profile/Informations';
@@ -45,7 +44,7 @@ const App = (): JSX.Element => {
 
   return (
     <Router>
-      { user.isLogged ?  <MenuProfile/> : <MenuHome/> }
+      { user.isLogged ?  "" : <MenuHome/> }
       <Switch>
         <Route path="/login" exact>
           <Login/>

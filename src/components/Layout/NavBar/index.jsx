@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import MenuHome from './MenuHome';
-import MenuProfile from './MenuProfile';
 
 const NavBar = () => {
     const user = useSelector((state) => state);
@@ -11,7 +10,7 @@ const NavBar = () => {
 
     useEffect(() => {
 		if (user.isLogged) {
-			history.push(`/profile`);
+			history.push(`/`);
 		}
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [user])
@@ -19,7 +18,7 @@ const NavBar = () => {
     return (
         <header>
             { 
-                user.isLogged ?  <MenuProfile/> : <MenuHome/>
+                user.isLogged ?  "" : <MenuHome/>
             }
             
         </header>

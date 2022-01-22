@@ -40,7 +40,6 @@ const ComputeInformations = () => {
 		if (!responseData?.data?.attributes)  {
 			return
 		}
-		console.log("ce que je veux voir",responseData.data.attributes);
 		setUserData(responseData.data.attributes);
 	}, [responseData])
 	
