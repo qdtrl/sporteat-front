@@ -35,7 +35,7 @@ const ProfileMenu = () => {
 						Menus du jour
 					</li> 
 				</Link>
-				<Link className="link-menu" to="/progress">
+				<Link className="link-menu" to="/progression">
 					<li className="items-list-menu">
 						<img className="icons-menu" src={statistics} alt="icône progression"/>
 						Progression

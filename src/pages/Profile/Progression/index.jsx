@@ -3,7 +3,7 @@ import {useFetch} from "../../../hooks/useFetch";
 import Menu from './menu'
 import Progress from './progress'
 
-const WodsProgress = () => {
+const Progression = () => {
     const [exercises, updateExercises] = useState();
     const [choice, updateChoice] = useState();
     // eslint-disable-next-line no-unused-vars
@@ -51,4 +51,4 @@ const WodsProgress = () => {
     )
 }
 
-export default WodsProgress
+export default Progression;

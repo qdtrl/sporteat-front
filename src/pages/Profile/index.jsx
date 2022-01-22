@@ -3,10 +3,10 @@ import {
 	Route } from "react-router-dom";
 import ProfileMenu from '../../components/ProfileMenu';
 import Informations from './Informations';
-import Wods from './Wods';
-import Mod from './Mod';
 import NoMatch from '../../pages/NoMatch';
-import WodsProgress from './WodsProgress/'
+import Progression from './Progression'
+import MealsOfTheDay from './MealsOfTheDay';
+import WorkoutOfTheDay from './WorkoutOfTheDay';
 
 const Profile = () => {
 
@@ -16,19 +16,19 @@ const Profile = () => {
 			<>
 				<Switch>			
 					<Route path="/" exact>
-						{ false ? <Informations/> : <Wods/> }
+						{ false ? <Informations/> : <WorkoutOfTheDay/> }
 					</Route>
 					<Route path="/meals-of-the-day" >
-						<Mod/>
+						<MealsOfTheDay/>
 					</Route>
 					<Route path="/workout-of-the-day">
-						<Wods/>
+						<WorkoutOfTheDay/>
 					</Route>
 					<Route path="/informations">
 						<Informations/>
 					</Route>
-					<Route path="/progress">
-						<WodsProgress/>
+					<Route path="/progression">
+						<Progression/>
 					</Route>
 					<Route>
 						<NoMatch />

@@ -37,8 +37,8 @@ const PresentationCards = () => {
 		<>
 			<h2 className="title-presentation"><strong>Sporteat</strong>, c'est quoi ?</h2>                
 			<div className="container-icons">
-				{cards.map((card) => (
-					<div className="cards">
+				{cards.map((card, index) => (
+					<div key={index} className="cards">
 						<h3>{card.title}</h3>
 						<div className="text">
 							<h4>{card.secondeTitle}</h4>

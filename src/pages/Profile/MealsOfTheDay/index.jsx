@@ -3,7 +3,7 @@ import { useFetch } from '../../../hooks/useFetch'
 import Menu from '../../../components/Repas';
 
 
-const Wod = () => {
+const MealsOfTheDay = () => {
   const { isLoading, responseData:Mod , get} = useFetch(true);
 
   useEffect(() => {
@@ -31,4 +31,4 @@ const Wod = () => {
   )
 }
 
-export default Wod;
+export default MealsOfTheDay;

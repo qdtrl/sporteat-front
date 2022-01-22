@@ -1,6 +1,6 @@
 import Workout from './Workout';
 
-const Wods = () => {
+const WorkoutOfTheDay = () => {
 
     return (
         <div className="wods-container">{/*
@@ -17,4 +17,4 @@ const Wods = () => {
     )
 }
 
-export default Wods;
+export default WorkoutOfTheDay;

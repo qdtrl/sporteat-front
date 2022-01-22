@@ -2,13 +2,14 @@ import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineSeries
 import {useEffect, useState} from "react"
 
 const Progress = (props) => {
+    console.log(props);
     const [lineGraph, updateLineGraph] = useState([]);
     const [barGraph, updateBarGraph] = useState([]);
     useEffect(() => {
         if(!props.data || props.data.length === 0){
             return;
         }
-        const newLineGraph = props.data.map((data, index)=>(
+        const newLineGraph = props.data?.map((data, index)=>(
             {
                 x : index + 1,
                 y : data.weight
