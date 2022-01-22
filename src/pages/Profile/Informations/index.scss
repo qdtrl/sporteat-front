@@ -1,4 +1,7 @@
 section.update-informations-form {
+  margin-top: 4rem;
+  height: 50vh;
+  max-height: 50vh;
   nav.nav-informations {
     width: 100%;
     background-color: $primary-background-darker;
@@ -9,9 +12,12 @@ section.update-informations-form {
       width: 100%;
       text-align: center;
       border: 1px solid black;
+      &:hover {
+        color: blue;
+      }
       &.active {
-      background-color: blue;
-    }
+        background-color: blue;
+      }
     }
     a {
       color: white;

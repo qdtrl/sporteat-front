@@ -1,21 +1,15 @@
 import { useEffect, useReducer } from "react";
 import { useFetch } from '../../../../hooks/useFetch';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-// import Alerts from "../../components/Alerts";
 
-const getItemStyle = (draggableStyle) => ({
-  ...draggableStyle
-});
 
 const reducer = (previousState , payload) => {
   const { type, value } = payload;
-  // const result = [...previousState];
+
   switch (type) {
     case "add":
-      const result = [...previousState.slice(0, value.index), value.data, ...previousState.slice(value.index)];
-      return result
+      return [...previousState.slice(0, value.index), value.data, ...previousState.slice(value.index)];
     case "remove":
-      return [...previousState.filter(val => val.id !== value.id)]
+      return [...previousState.filter(val => val.id !== value.data.id)]
     case "fill":
       return [...value]
     case "reorder":
@@ -54,115 +48,48 @@ const  MyEquipement = () => {
     }
   }, [dataAllEquipement, errorAll])
 
-  const onDragEnd = (result) => {
-    const { source, destination } = result;
-
-    if (!destination) {
-      return;
-    }
-
-    const { index:indexSource, droppableId:sourceId} = source;
-    const { index:indexDestination, droppableId:destinationId} = destination;
-  
-    if (sourceId === destinationId) {
-      if ( sourceId === "my-equipement") {
-        setMyEquipement({type: "reorder", value: [indexSource, indexDestination]})  
-      } else if ( sourceId === "all-equipement") {
-        setAllEquipement({type: "reorder", value: [indexSource, indexDestination]})
-      }
-      return
-    } 
-    if (destinationId === "my-equipement") {
-      const data = allEquipement[indexSource];
-      setMyEquipement({type: "add", value: {index: indexDestination, data:data} });
-      setAllEquipement({type: "remove", value: data });
-      patch(`/my_equipements/${data.id}`)
-    } else if (destinationId === "all-equipement") {
-      const data = myEquipement[indexSource];
-      setAllEquipement({type: "add", value: {index: indexDestination, data:data} });
-      setMyEquipement({type: "remove", value: data });
-      destroy(`/my_equipements/${data.id}`)
-    }
+  const removeUserItem = (event) => {
+    const id = event.target.id;
+    const data = myEquipement[id];
+    setAllEquipement({type: "add", value: {index:id, data}})
+    destroy(`/my_equipements/${data.id}`)
+    setMyEquipement({type: "remove", value: {index:id, data}})
+    console.log(event);
   }
 
+  const addUserItem = (event) => {
+    const id = event.target.id;
+    const data = allEquipement[id];
+    setMyEquipement({type: "add", value: {index:id, data}})
+    setAllEquipement({type: "remove", value: {index:id, data}})
+    patch(`/my_equipements/${data.id}`)
+  }
   return (
-    <div>
-      {/* {(!errorUser) && <Alerts type={"success"} message={"L'élément a été ajouté à votre équipement  vous pouvez accéder aux exercices l'incluant"}/>}
-      {(!errorAll) && <Alerts type={"warning"} message="L'élément a été retiré de vos équipement vous ne pourrez plus accéder aux exercices l'incluant"/>} */}
-      <div className="dnd-equipements">
-        <DragDropContext onDragEnd={onDragEnd}>
-          <div>
-            <h2>Mon équipement</h2>
-            <Droppable droppableId="my-equipement">
-              {(provided, snapshot) => (
-                <div
-                  ref={provided.innerRef}
-                  className={`equipements-list ${snapshot.isDraggingOver? "on-drag" : ""}`}
-                  {...provided.droppableProps}
-                >
-                  {myEquipement.map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id.toString()}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className={`equipement-item-container`}
-                          style={getItemStyle(provided.draggableProps.style)}
-                        >
-                          <div className="equipement-item">
-                            <p> {item.name} {item.weight === 0? "" : item.weight} </p>
-                          </div>
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-            </div>
-            <div>
-            <h2>Tout les équipement pour nos exercices</h2>
-            <Droppable droppableId={"all-equipement"}>
-              {(provided, snapshot) => (
-                <div
-                  ref={provided.innerRef}
-                  className={`equipements-list ${snapshot.isDraggingOver? "on-drag" : ""}`}
-                  {...provided.droppableProps}
-                >
-                  {allEquipement.map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id.toString()}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className={`equipement-item-container`}
-                          style={getItemStyle(provided.draggableProps.style)}
-                        >
-                          <div className="equipement-item">
-                           <p> {item.name} {item.weight === 0? "" : item.weight} </p>
-                          </div>
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-            </div>
-        </DragDropContext>
-      </div>
+    <div className="equipements-container">
+      <ul className="equipement-items">
+        <label>L'équipement que je possede : </label>
+        {myEquipement?.map((equipement, index) => (
+          <li 
+            className="equipement-item"
+            id={index}
+            key={index}
+            onClick={removeUserItem}>
+              {equipement.name} {equipement.weight? equipement.weight : "" }
+          </li>
+        ))}
+      </ul>
+      <label>Tout les équipements de nos exercices :</label>
+      <ul className="equipement-items">
+        {allEquipement?.map((equipement, index) => (
+          <li
+            className="equipement-item" 
+            id={index}
+            key={index}
+            onClick={addUserItem}>
+              {equipement.name} {equipement.weight? equipement.weight : "" }
+          </li>
+        ))} 
+      </ul>
     </div>
   );
 }

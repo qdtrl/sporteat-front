@@ -1,32 +1,27 @@
-$grid: 8px;
-div.dnd-equipements {
-  width: 70vw;
+div.equipements-container {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  div.equipements-list {
-    transition: none !important;
-    background: $secondary-color;
-    padding: $grid;
-    width: 30vw;
-    &.on-drag {
-      transition: none !important;
-      background: lightblue;
-    }
-    div.equipement-item-container {
-      transition: none !important;
-      user-select: none;
-      padding: $grid * 2;
-      margin: 0 0 $grid 0;
-      background: $primary-background;
+  justify-content: space-around;
+  margin: 0;
+  ul.equipement-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 40vh;
+    overflow-y: scroll;
+    text-decoration: none;
+    list-style-type: none;
+    text-align: center;
+    margin:0;
+    padding: 0;
+    li.equipement-item {
+      display : inline-block;
+      width : 70%;
+      padding: 1rem;
       &:hover {
-        background: lightcoral;
-      }
-      &:active {
-        background: lightcoral;
-      }
-      div.equipement-item {
-          display: "flex";
-          justify-content: "space-around";
+          background-color: $primary-background-darker;
       }
     }
   }

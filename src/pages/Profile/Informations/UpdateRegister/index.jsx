@@ -9,8 +9,20 @@ const UpdateRegister = () => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state);
 	const [canBeSubmit, setCanBeSubmit] = useState(false);
-	const [userData, setUserData] = useState(user)
-	console.log(userData);
+	console.log('t',user);
+	const [userData, setUserData] = useState(
+		{ 
+			firstname: undefined,
+			lastname: undefined,
+			email: undefined,
+		})
+
+	useEffect(() => {
+		if(!userData.firstname && user.email)
+			setUserData(user)
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [user])
+
 	const { error, responseData, patch} = useFetch(true);
 
 	const checkEmailFormat = () => {
@@ -34,8 +46,7 @@ const UpdateRegister = () => {
 
 	useEffect(() => {
 		if (responseData && !error) {
-			console.log(responseData);
-			dispatch({ type: UPDATE, responseData});
+			dispatch({ type: UPDATE, data:responseData});
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [responseData]);	
@@ -74,7 +85,7 @@ const UpdateRegister = () => {
 								placeholder=' Nom'
 								onChange={handleChange}
 								name="firstname"
-								value={userData.firstname}
+								value={userData?.firstname}
 								className="input"
 							/>	
 						</div>						
@@ -88,7 +99,7 @@ const UpdateRegister = () => {
 								placeholder=' Email'
 								onChange={handleChange}
 								name="email"
-								value={userData.email}
+								value={userData?.email }
 								className="input"
 							/>	
 						</div>						
