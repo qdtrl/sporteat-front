@@ -10,8 +10,9 @@ const MealsOfTheDay = () => {
     if(!Mod){
         get("/mods")
     }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [Mod])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Mod])
+  
   return (
     <>
       { (!Mod && isLoading) && <p>2 sec ça charge</p>}

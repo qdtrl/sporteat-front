@@ -1,13 +1,14 @@
-const Menu = (props) => {
-	console.log(props);
+const Menu = ({ exercices, weights, userChoices, setUserChoices }) => {
+	
 	return (
 		<div className="menu">
 		{
-			props.exos?.map((exo, index) => (
-				<div key={index} className="choice" onClick={()=>{props.update(exo.id)}} >
-					{
-						exo.name
-					}
+			exercices?.map((exercice, index) => (
+				<div 
+					key={index} 
+					className="choice" 
+					onClick={()=>{setUserChoices({...userChoices, exercice_id: exercice.id })}} >
+					{ exercice.name }
 				</div>
 			))
 		}
