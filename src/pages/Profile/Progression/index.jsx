@@ -1,19 +1,26 @@
-import {useState, useEffect} from "react";
-import { 
-	LineChart, 
-	Line, 
+import {
+	useState,
+	useEffect } from "react";
+import {
+	LineChart,
+	Line,
 	CartesianGrid,
-	XAxis, 
+	XAxis,
 	YAxis } from 'recharts';
-import {useFetch} from "../../../hooks/useFetch";
-import Menu from './menu'
+import { useFetch } from "../../../hooks/useFetch";
+import Menu from './menu';
 
 const Progression = () => {
-	const [ userChoices, setUserChoices] = useState({ exercice_id: "", weight: "", select: ""});
+	const [ userChoices, setUserChoices] = useState(
+		{ 
+			exercice_id: "",
+			weight: "",
+			select: "repetitions"
+		});
 	const [performances, setPerformances] = useState();
 	const [ weights, setWeights ] = useState();
 	const [exercices, setExercices] = useState();
-	const {responseData, get} = useFetch(true);
+	const { responseData, get } = useFetch(true);
 
 	useEffect(() => {
 		get("/my_performances")
@@ -38,7 +45,7 @@ const Progression = () => {
 				console.log('test');
 				return
 			}
-			else 
+			else
 				fill.push(performance.weight);
 		});
 		setWeights(fill);
@@ -51,42 +58,43 @@ const Progression = () => {
 	useEffect(() => {
 		if (exercices)
 			getExerciceWeights()
-	}, [userChoices, performances])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [userChoices, performances, exercices])
 
 	useEffect(() => {
 		console.log("user", userChoices, performances);
-	}, [performances])
-
+	}, [performances, userChoices])
 
 	useEffect(() => {
 		if (responseData)
 			setPerformances(responseData.performances);
 		if (userChoices.exercice_id)
 			getExercicePerformances()
-	}, [userChoices])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [responseData, userChoices])
 
 	return(
 		<section className="chart">
-		<Menu 
-			exercices={exercices} 
-			weights={weights}
-			userChoices={userChoices}
-			setUserChoices={setUserChoices}/>
-		<div className="chart-performances">
-			<LineChart
-				width={400}
-				height={400}
-				data={performances}
-				>
-				<Line 
-					type="monotone"
-					dataKey={'repetitions'}
-					stroke="#8884d8"/>
-				<CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-				<XAxis dataKey="created_at" />
-				<YAxis dataKey="weight"/>
-			</LineChart>
-		</div>
+			<Menu
+				exercices={exercices}
+				weights={weights}
+				userChoices={userChoices}
+				setUserChoices={setUserChoices}/>
+			<div className="chart-performances">
+				<LineChart
+					width={400}
+					height={400}
+					data={performances}
+					>
+					<Line
+						type="monotone"
+						dataKey={userChoices.select}
+						stroke="#8884d8"/>
+					<CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+					<XAxis dataKey="created_at" />
+					<YAxis dataKey="weight"/>
+				</LineChart>
+			</div>
 		</section>
 	)
 }
