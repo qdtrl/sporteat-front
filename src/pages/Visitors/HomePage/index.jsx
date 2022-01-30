@@ -9,7 +9,7 @@ const HomePage = () => {
 				<div className="jumbotron">
 					<h1>Sporteat, </h1>
 					<h2>Le sport sur mesure, jusque dans l'assiette !</h2>
-					<p>On vous propose un <strong>programme sportif</strong> et <strong>nutrionnel</strong>,</p>
+					<p>On vous propose un suivit <strong>sportif</strong> et <strong>nutrionnel</strong>,</p>
 					<p>afin que vous atteignez rapidement les <strong>objectifs</strong> que vous fixez !</p>
 				</div>
 				<Register />

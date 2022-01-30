@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { 
   BrowserRouter as Router,
   Switch,
@@ -10,14 +10,15 @@ import { GET_USER, LOGOUT } from './stores/actions';
 
 import HomePage from './pages/Visitors/HomePage';
 import Login from './pages/Visitors/Login';
+import SportPresentation from './pages/Visitors/SportPresentation';
+import MealPresentation from './pages/Visitors/MealPresentation/index';
 import Profile from './pages/Profile';
 import MenuHome from './components/Layout/NavBar/NavHome';
 import { Footer } from './components/Layout/Footer';
-import Informations from './pages/Profile/Informations';
 import NoMatch from './pages/NoMatch';
 
 
-const App = (): JSX.Element => {
+const App:FC = () => {
   const user:any = useSelector((state) => state);
   const { headers }:any = useFetch(true);
   const dispatch = useDispatch();
@@ -46,14 +47,17 @@ const App = (): JSX.Element => {
     <Router>
       { user.isLogged ?  "" : <MenuHome/> }
       <Switch>
+        <Route path="/">
+          { user.isLogged ? <Profile/> : <HomePage/> }
+        </Route>
         <Route path="/login" exact>
           <Login/>
         </Route>
-        <Route path="/informations" exact>
-          { user.isLogged ? <Informations/> : <HomePage/> }
+        <Route path="/sport" exact>
+          <SportPresentation />
         </Route>
-        <Route path="/">
-          { user.isLogged ? <Profile/> : <HomePage/> }
+        <Route path="/meal" exact>
+          <MealPresentation />
         </Route>
         <Route>
           <NoMatch />

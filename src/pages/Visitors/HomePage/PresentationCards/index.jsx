@@ -7,10 +7,10 @@ const PresentationCards = () => {
 	const cards = [
 		{
 			name: 'workout',
-			title: "Des exercices sur mesure",
-			secondeTitle: "Prise en main",
+			title: "Vos seances sur mesure",
+			secondeTitle: "La prise en main",
 			text: `Pour commencer, c'est simple ! Il vous suffit de renseigner 
-							votre forme physique puis la ou les parties du corps vous souhaitez travailler.
+							les equipements que vous possedez chez vous votre forme physique puis la ou les parties du corps vous souhaitez travailler.
 							Ensuite, Sporteat se charge ensuite de vous créer un programme sur mesure.`,
 			image: workoutImage
 		},
@@ -20,7 +20,7 @@ const PresentationCards = () => {
 				secondeTitle: "Un programme alimentaire adapté",
 				text: `Nous vous guidons pour allier alimentation et sport pour des
 							résultats à la hauteur de vos espérances.
-							Vous bénéficierez ainsi des apports nécessaires et d'un nouveau rythme de vie plus sain.`,
+							Vous bénéficierez ainsi des apports nécessaires et d'un nouveau rythme de vie.`,
 				image: menuImage
 			},
 			{ 
