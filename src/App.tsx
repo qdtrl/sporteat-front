@@ -12,11 +12,14 @@ import HomePage from './pages/Visitors/HomePage';
 import Login from './pages/Visitors/Login';
 import SportPresentation from './pages/Visitors/SportPresentation';
 import MealPresentation from './pages/Visitors/MealPresentation/index';
-import Profile from './pages/Profile';
 import MenuHome from './components/Layout/NavBar/NavHome';
 import { Footer } from './components/Layout/Footer';
 import NoMatch from './pages/NoMatch';
-
+import Informations from './pages/Profile/Informations';
+import WorkoutOfTheDay from './pages/Profile/WorkoutOfTheDay';
+import MealsOfTheDay from './pages/Profile/MealsOfTheDay';
+import Progression from './pages/Profile/Progression';
+import SideNavBar from './pages/Profile/SideNavBar';
 
 const App:FC = () => {
   const user:any = useSelector((state) => state);
@@ -45,10 +48,10 @@ const App:FC = () => {
 
   return (
     <Router>
-      { user.isLogged ?  "" : <MenuHome/> }
+      { user.isLogged ? <SideNavBar/> : <MenuHome/> }
       <Switch>
         <Route path="/" exact>
-          { user.isLogged ? <Profile/> : <HomePage/> }
+          { user.isLogged ? ( false ? <Informations/> : <WorkoutOfTheDay/> ) : <HomePage/> }
         </Route>
         <Route path="/login" exact>
           <Login/>
@@ -59,6 +62,22 @@ const App:FC = () => {
         <Route path="/meal" exact>
           <MealPresentation />
         </Route> 
+        { user.isLogged && 
+         <Route path="/meals-of-the-day">
+          <MealsOfTheDay/>
+        </Route> }
+        { user.isLogged && 
+        <Route path="/workout-of-the-day">
+          <WorkoutOfTheDay/>
+        </Route> }
+        { user.isLogged && 
+        <Route path="/informations">
+          <Informations/>
+        </Route> }
+        { user.isLogged && 
+        <Route path="/progression">
+          <Progression/>
+        </Route> }
         <Route>
           <NoMatch />
         </Route>

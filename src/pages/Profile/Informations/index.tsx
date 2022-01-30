@@ -39,13 +39,13 @@ const Informations = () => {
         </nav>
         <div className="update-informations-container">
           <Switch>			
-            <Route path="/informations/compute-informations">
+            <Route path={paths[0]}>
               <ComputeInformations/>
             </Route>
-            <Route path="/informations/my-equipement" >
+            <Route path={paths[1]} >
               <MyEquipement/>
             </Route>
-            <Route path="/informations/update-register">
+            <Route path={paths[2]}>
               <UpdateRegister/>
             </Route>
             <Route>

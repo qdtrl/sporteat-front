@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { LOGOUT } from '../../stores/actions';
-import profilePicture from '../../assets/profile-picture.png';
-import informations from '../../assets/icons/informations.png';
-import menu from '../../assets/icons/menu2.png';
-import sport from '../../assets/icons/sport.png';
-// import favorite from '../../assets/icons/favorite.png';
-import statistics from '../../assets/icons/statistics.png';
+import { LOGOUT } from '../../../stores/actions';
+import profilePicture from '../../../assets/profile-picture.png';
+import informations from '../../../assets/icons/informations.png';
+import menu from '../../../assets/icons/menu2.png';
+import sport from '../../../assets/icons/sport.png';
+import statistics from '../../../assets/icons/statistics.png';
 
-
-
-const ProfileMenu = () => {
+const SideNavBar = () => {
 	const dispatch = useDispatch();
 
 	const handleLogout = () => {
@@ -57,4 +54,4 @@ const ProfileMenu = () => {
 	)
 }
 
-export default ProfileMenu;
+export default SideNavBar;

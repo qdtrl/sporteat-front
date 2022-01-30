@@ -1,87 +1,30 @@
-@use "sass:color";
-
-.wods-container{    
-    width: 55vw;
-    margin: 1em auto;
-    padding: 2em 1em;
-   color: $primary-background;
-    .workout-selector-container{
-        width: 100%;
+section.workout_of_the_day {
+    margin: 5% 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    nav {
+        width: 50%;
+        background-color: $primary-background-darker;
         display: flex;
         justify-content: space-around;
-        .workout-selector{
-            padding: 2em 1em;
-               }
-    }
-    .line{
-        width: 90%;
-        margin: 1em auto;
-        
-        &:hover{
-            transform: none;
+        .link {
+          padding: 0.8rem;
+          width: 100%;
+          text-align: center;
+          border: 1px solid black;
+          &:hover {
+            color: blue;
+          }
+          &.active {
+            background-color: blue;
+          }
         }
-    }
-    .workout{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 90%;
-        margin: 0 auto;
-        .top-menu{
-            width: 100%;
-            height: 10vh;
-            display: flex;
-            border-radius: 20px;
-            justify-content: space-around;
-            align-items: center;
-            background-color: rgba($primary-color, $alpha: 0.25);
+        a {
+          color: white;
+          text-decoration: none;
         }
-        .card{
-            width: 90%;
-            margin: 1em auto;
-            padding: 1em 2em;
-            transform: none !important;
-            
-            .exos{
-                width: 90%;
-                margin: 1em auto;
-                .exo{
-                    padding: 1em 2em;
-                    margin: 1em auto;
-                    h3{
-                        margin: 0 .5em;
-                    }
-                }
-            }
-
-            &:has(.exos:empty){
-                display: none;
-            }
-        }
-        .work{
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #fff;
-        }
-    }
-    *:not(.btn){
-        color: $primary-background;
-    }
+      }
 }
-
-.timer{
-    display: flex;
-    flex-direction: row;
-    align-items : center;
-
-    .timer-time{
-        font-size: 30px;
-        margin-right: 20px;
-    }
-    
-}
-
