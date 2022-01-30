@@ -1,6 +1,9 @@
 footer {
-    height: 15vh;
-    width: 100%;
+    position: relative;
+    bottom: 0;
+    height: auto;
+    width: 100vw;
+    margin: 2rem 0rem;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -8,10 +11,4 @@ footer {
     justify-content: center;
     font-family: $content-font;
     color: $primary-background;
-    position: relative;
-    //bottom: 0vh;
-}
-
-.logo-footer{
-    width: 20%;
 }

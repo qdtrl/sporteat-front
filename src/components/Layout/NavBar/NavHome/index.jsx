@@ -34,6 +34,20 @@ const MenuHome = () => {
                     <div className="sport">Sport</div><div className="eat">eat</div>
                 </div>
             </Link>
+            <div className="nav-right">
+                <Link className="navItems" to="/">
+                    Accueil
+                </Link> 
+                <Link className="navItems" to="/sport">
+                    Le sport
+                </Link>  
+                <Link className="navItems" to="/meal">
+                    Les repas
+                </Link>  
+                <Link className="navItems" to="/login">
+                    Me connecter
+                </Link>                
+            </div>
         </nav>
     )
 }

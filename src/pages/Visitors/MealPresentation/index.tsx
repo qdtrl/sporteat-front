@@ -2,7 +2,7 @@ import { FC } from "react";
 
 const MealPresentation:FC = () => {
   return (
-    <>
+    <section className="meal_presentation">
       <h1>Les repas</h1>
       <h2>Notre unique objectif : vous mangez nous nous occupons du reste !</h2>
       <p>L'alimentation dans le sport est le carburant de votre voiture. 
@@ -15,7 +15,7 @@ const MealPresentation:FC = () => {
         alimentaire nous vous proposerons des macros s'approchant de
         la moyenne vous correspondant. Ensuite apres quelques semaines 
         vous serez les jugent avec qu'un seul facteur : comment vous sentez vous ?</p>
-    </>
+    </section>
   )
 }
 

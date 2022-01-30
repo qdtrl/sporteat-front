@@ -1,16 +1,16 @@
 .nav-home {
-    width: 100vw;
-    height: 10vh;
-    background-color: transparent;
-    color: $primary-background;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-family: $content-font;
-    margin: 0px;
-    position: fixed;
-    z-index: 5;
-    top: 0;
+  top: 0;  
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  background-color: transparent;
+  color: $primary-background;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $content-font;
+  margin: 0px;
+  z-index: 5;
 }
     
     .nav-right{

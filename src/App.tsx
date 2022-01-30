@@ -47,7 +47,7 @@ const App:FC = () => {
     <Router>
       { user.isLogged ?  "" : <MenuHome/> }
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           { user.isLogged ? <Profile/> : <HomePage/> }
         </Route>
         <Route path="/login" exact>
@@ -58,7 +58,7 @@ const App:FC = () => {
         </Route>
         <Route path="/meal" exact>
           <MealPresentation />
-        </Route>
+        </Route> 
         <Route>
           <NoMatch />
         </Route>
