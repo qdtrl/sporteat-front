@@ -1,0 +1,22 @@
+nav {
+  width: 50%;
+  background-color: $primary-background-darker;
+  display: flex;
+  justify-content: space-around;
+  .link {
+    padding: 0.8rem;
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    &:hover {
+      color: blue;
+    }
+    &.active {
+      background-color: blue;
+    }
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

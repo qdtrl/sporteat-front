@@ -1,7 +1,7 @@
 import { useEffect,useState } from 'react';
-import { useFetch } from '../../../../hooks/useFetch';
-import Panier from '../Create/Panier';
-import ShowExercices from '../Create/ShowExercices';
+import { useFetch } from '../../../../../hooks/useFetch';
+import Panier from '../../../../../components/Panier';
+import ShowExercices from '../../../../../components/ShowExercices';
 
 const Flow = () => {
   const { responseData:data, get} = useFetch(true);
@@ -10,9 +10,9 @@ const Flow = () => {
   const [panier, setPanier] = useState([])
 
   const handleOnClick = (e) => {
-    setExerciceType(0);
     setExerciceType(e.target.name)
   }
+
   useEffect(() => {
     if (exerciceType)
       get(`/exercices/workout`)

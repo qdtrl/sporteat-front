@@ -20,7 +20,7 @@ const SideNavBar = () => {
 				<img className="profile-picture" src={profilePicture} alt="nom de l'utilisateur"/>
 			</div>
 			<ul className="list-menu"> 
-				<Link className="link-menu" to="/workout-of-the-day">
+				<Link className="link-menu" to="/workout-of-the-day/choose">
 					<li className="items-list-menu">
 						<img className="icons-menu" src={sport} alt="icône entraînement"/>
 						Entraînement du jour

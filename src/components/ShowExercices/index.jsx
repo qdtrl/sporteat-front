@@ -52,7 +52,7 @@ const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) 
             onChange={handleChange}
             value={exo.rounds}
             min="1"/>
-          <button type="submit">+</button>
+          { AddExercice ? <button type="submit">+</button> : "" }
         </form>
       </li>}
     </>

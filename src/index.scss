@@ -4,6 +4,8 @@
 @import './components/Layout/Footer/';
 @import './components/Fields/';
 @import './components/Alerts/';
+@import './components/Panier';
+@import './components/ShowExercices';
 
 @import './pages/formsLayout.scss';
 @import './pages/NoMatch/';
@@ -14,10 +16,9 @@
 @import './pages/Visitors/MealPresentation/';
 
 @import './pages/Profile/SideNavBar';
-@import './pages/Profile/WorkoutOfTheDay';
-@import './pages/Profile/WorkoutOfTheDay/Create';
-@import './pages/Profile/WorkoutOfTheDay/Create/Panier';
-@import './pages/Profile/WorkoutOfTheDay/Create/ShowExercices';
+@import './pages/Profile/WorkoutOfTheDay/';
+@import './pages/Profile/WorkoutOfTheDay/Choose/';
+@import './pages/Profile/WorkoutOfTheDay/Choose/Create/';
 
 @import './pages/Profile/MealsOfTheDay/';
 @import './pages/Profile/Progression/';

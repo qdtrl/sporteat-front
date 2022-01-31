@@ -14,7 +14,7 @@ const Panier = ({ panier, setPanier }) => {
           {name} {weight}kg <em>{repetitions}x{rounds} <button id={exercice_id} onClick={deleteItem}>-</button></em>
         </li>
       ))}
-      <Link to="workout-of-the-day/validate" className='validate'>Aller valider le panier</Link>
+      <Link to="/workout-of-the-day/validation" className='validate'>Aller valider le panier</Link>
     </ul>
   )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useFetch } from '../../../../hooks/useFetch';
-import Panier from './Panier';
-import ShowExercices from './ShowExercices';
+import { useFetch } from '../../../../../hooks/useFetch';
+import Panier from '../../../../../components/Panier';
+import ShowExercices from '../../../../../components/ShowExercices';
 
 const Create = () => {
   const { responseData:data, get} = useFetch(true);
@@ -42,8 +42,6 @@ const Create = () => {
         ))}
       </ul> }
     </>
-    
-
   )
 }
 
