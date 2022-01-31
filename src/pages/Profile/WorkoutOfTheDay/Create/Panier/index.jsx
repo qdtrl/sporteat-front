@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Panier = ({ panier, setPanier }) => {
   const deleteItem = (e) => {
     const id = Number(e.target.id);
@@ -12,6 +14,7 @@ const Panier = ({ panier, setPanier }) => {
           {name} {weight}kg <em>{repetitions}x{rounds} <button id={exercice_id} onClick={deleteItem}>-</button></em>
         </li>
       ))}
+      <Link className='validate'>Aller valider le panier</Link>
     </ul>
   )
 }

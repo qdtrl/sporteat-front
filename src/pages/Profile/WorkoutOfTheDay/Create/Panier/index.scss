@@ -5,9 +5,32 @@ ul.panier {
   top: 20px;
   right: 20px;
   padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   list-style: none;
   li {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
+    button {
+      background-color: red;
+      border: none;
+      padding: 0.2rem 0.5rem;
+      border-color: red;
+    }
+  }
+  .validate {
+    color: white;
+    &:hover {
+      color: blue;
+    }
+    width: 60%;
+    text-align: center;
+    background-color: green;
+    text-decoration: none;
+    margin-top: 1rem;
+    padding: 0.5rem;
   }
 }
