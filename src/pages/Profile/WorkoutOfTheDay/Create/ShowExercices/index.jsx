@@ -10,18 +10,17 @@ const ShowExercices = ({exercice, performance, AddExercice, index}) => {
   })
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(exo);
-
-    AddExercice(exo)
+    AddExercice(exo);
   }
 
   const handleChange = (e) => {
+    e.preventDefault();
     const {name, value} = e.target;
     setExo({...exo, [name]: value})
   }
   
   return (
-      <li key={exercice.id} id={exercice.id} onClick={AddExercice}>
+      <li key={exercice.id} id={exercice.id}>
         {exercice.name}
         <form onSubmit={handleSubmit}>
           { exercice.equipement_id !== 1 && <><label>poids</label>

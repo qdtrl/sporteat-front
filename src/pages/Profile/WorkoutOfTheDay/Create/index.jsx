@@ -26,12 +26,12 @@ const Create = () => {
   }
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(panier);
+  }, [panier]);
 
   return (
     <>
-      <Panier panier={panier}/>
+      <Panier panier={panier} setPanier={setPanier}/>
       <ul className='list equipements'>
       {data?.map(({equipement}, index) => (
         <li id={index} key={index} onClick={handleClickOnEquipement}>
