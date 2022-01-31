@@ -3,10 +3,9 @@ import { useFetch } from '../../../../../hooks/useFetch';
 import Panier from '../../../../../components/Panier';
 import ShowExercices from '../../../../../components/ShowExercices';
 
-const Create = () => {
+const Create = ({ panier, setPanier }) => {
   const { responseData:data, get} = useFetch(true);
   const [indexShowExercices, setIndexShowExercices] = useState(false);
-  const [panier, setPanier] = useState([])
 
   useEffect(() => {
     get("/exercices")
@@ -38,7 +37,12 @@ const Create = () => {
       { indexShowExercices && 
       <ul className="list exercices">
         {data[indexShowExercices].exercices.map(({exercice, performance}, index) => (
-          <ShowExercices key={index} exercice={exercice} performance={performance} AddExercice={AddExercice} index={index}/> 
+          <ShowExercices 
+            key={index} 
+            equipement={data[indexShowExercices].equipement} 
+            exercice={exercice} performance={performance} 
+            AddExercice={AddExercice} 
+            index={index}/> 
         ))}
       </ul> }
     </>

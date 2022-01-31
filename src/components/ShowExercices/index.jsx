@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) => {
+  const location = useLocation().pathname;
   const [exo, setExo] = useState()
 
   useEffect(() => {
     setExo({
-      exercice_id: exercice.id,
+      id: exercice.id,
       name: exercice.name,
+      equipement_id: equipement.id,
+      equipement_name: equipement.name,
       repetitions: performance.repetitions || 1,
       rounds: 1,
       weight: performance.weight || 1
@@ -29,7 +33,7 @@ const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) 
     <>
       {exo &&
       <li key={exercice.id} id={exercice.id}>
-        {equipement?.name} {exercice.name} 
+        { location !== "/workout-of-the-day/choose/create" ? equipement.name : ""} {exercice.name} 
         <form onSubmit={handleSubmit}>
           { exercice.equipement_id !== 1 && <><label>poids</label>
           <input 

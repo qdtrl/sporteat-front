@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import {
 	Link,
 	Route,
@@ -8,7 +7,7 @@ import Create from './Create';
 import Flow from './Flow';
 import Improve from './Improve';
 
-const Choose:FC = () => {
+const Choose = ({panier, setPanier}) => {
   const location = useLocation().pathname;
 
 	const entrainements = [
@@ -38,13 +37,13 @@ const Choose:FC = () => {
 			</nav>
 			<Switch>
 				<Route path={entrainements[0].url} exact>
-					<Create/>
+					<Create panier={panier} setPanier={setPanier}/>
 				</Route> 
         <Route path={entrainements[1].url} exact>
-					<Flow/>
+					<Flow panier={panier} setPanier={setPanier}/>
 				</Route> 
 				<Route path={entrainements[2].url} exact >
-					<Improve/>
+					<Improve setPanier={setPanier}/>
 				</Route> 
 			</Switch>
 		</>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { 
   Switch,
   Route } from "react-router-dom";
@@ -6,17 +7,23 @@ import Validation from './Validation';
 import Perform from "./Perform";
 
 const WorkoutOfTheDay = () => {
+	const [ panier, setPanier ] = useState([]);
+
+	useEffect(() => {
+		console.log(panier);
+	}, [panier]);
+
   return (
     <section className="workout_of_the_day">
       <Switch>
 				<Route path="/workout-of-the-day/choose">
-					<Choose/>
+					<Choose panier={panier} setPanier={setPanier}/>
 				</Route> 
         <Route path="/workout-of-the-day/validation">
-					<Validation/>
+					<Validation panier={panier} setPanier={setPanier}/>
 				</Route> 
 				<Route path="/workout-of-the-day/perform">
-					<Perform/>
+					<Perform panier={panier} setPanier={setPanier}/>
 				</Route> 
 			</Switch>
     </section>

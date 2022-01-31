@@ -3,11 +3,10 @@ import { useFetch } from '../../../../../hooks/useFetch';
 import Panier from '../../../../../components/Panier';
 import ShowExercices from '../../../../../components/ShowExercices';
 
-const Flow = () => {
+const Flow = ({ panier, setPanier }) => {
   const { responseData:data, get} = useFetch(true);
   const [exerciceType, setExerciceType] = useState(false);
   const [reload, setReload] = useState(false);
-  const [panier, setPanier] = useState([])
 
   const handleOnClick = (e) => {
     setExerciceType(e.target.name)
@@ -35,9 +34,15 @@ const Flow = () => {
       <button name="hit" onClick={handleOnClick}>Cardio</button>
       <button name="gymnastic" onClick={handleOnClick}>Gymnastique</button>
       {data && <ul className='list exercices'>
-        <ShowExercices equipement={data.equipement} exercice={data.exercice} performance={data.performance} AddExercice={AddExercice} /> 
+        <ShowExercices 
+          equipement={data.equipement} 
+          exercice={data.exercice} 
+          performance={data.performance} 
+          AddExercice={AddExercice} /> 
       </ul>}
-      { exerciceType && <button onClick={() => setReload(!reload)}>Autre exercice de {exerciceType}</button>}
+      { exerciceType && <button onClick={() => setReload(!reload)}>
+          Autre exercice de {exerciceType}
+        </button>}
     </>
   )
 }

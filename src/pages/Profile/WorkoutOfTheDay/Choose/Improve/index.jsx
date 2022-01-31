@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useFetch } from "../../../../../hooks/useFetch";
 import ShowExercices from '../../../../../components/ShowExercices';
 
-const Improve = () => {
+const Improve = ({ setPanier }) => {
   const { responseData:data, get} = useFetch(true);
   
   useEffect(() => {
@@ -11,18 +11,41 @@ const Improve = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleClick = (e) => {
+    const index = e.target.id
+    setPanier(
+      { 
+        wod: 
+        {
+          name: data[index].wod.name,
+          calories: data[index].wod.calories
+        },
+        exercices: data[index].exercices
+      })
+  }
+
   return (
     <>
       <ul className='list wods'>
-        {data?.map(({wod, exercices}) => (
-          <li>
+        {data?.map(({wod, exercices}, index) => (
+          <div key={index}>
             <h2>{wod.name}</h2>
             <p>{wod.calories}</p>
-            { exercices.map(({equipement, exercice, performance}) => (
-              <ShowExercices equipement={equipement} exercice={exercice} performance={performance} />
+            { exercices.map(({equipement, exercice, performance}, index) => (
+              <ShowExercices
+                key={index}
+                equipement={equipement}
+                exercice={exercice}
+                performance={performance}/>
             ))}
-            <Link to="/workout-of-the-day/validation" className='validate'>Aller valider le panier</Link>
-          </li>
+            <Link 
+              id={index} 
+              onClick={handleClick} 
+              to="/workout-of-the-day/perform" 
+              className='validate'>
+                Refaire cette seance
+            </Link>
+          </div>
         ))}
       </ul>
     </>
