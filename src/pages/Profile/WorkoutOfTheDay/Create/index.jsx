@@ -1,0 +1,54 @@
+import { useEffect, useState } from 'react';
+import { useFetch } from '../../../../hooks/useFetch';
+import Panier from './Panier';
+import ShowExercices from './ShowExercices';
+
+const Create = () => {
+  const { responseData:data, get} = useFetch(true);
+  const [indexShowExercices, setIndexShowExercices] = useState(false);
+  const [panier, setPanier] = useState([])
+
+  useEffect(() => {
+    get("/wods")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClickOnEquipement = (e) => {
+    const id = e.target.id;
+    if (id === indexShowExercices)
+      setIndexShowExercices(false)
+    else
+      setIndexShowExercices(id)
+  }
+
+  const AddExercice = (exo) => {
+    setPanier([...panier, exo]);
+  }
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  return (
+    <>
+      <Panier panier={panier}/>
+      <ul className='list equipements'>
+      {data?.map(({equipement}, index) => (
+        <li id={index} key={index} onClick={handleClickOnEquipement}>
+          {equipement.name}
+        </li>
+      ))}
+      </ul>
+      { indexShowExercices && 
+      <ul className="list exercices">
+        {data[indexShowExercices].exercices.map(({exercice, performance}, index) => (
+          <ShowExercices key={index} exercice={exercice} performance={performance} AddExercice={AddExercice} index={index}/> 
+        ))}
+      </ul> }
+    </>
+    
+
+  )
+}
+
+export default Create;

@@ -26,8 +26,8 @@ const WorkoutOfTheDay:FC = () => {
 			<h1>Que faisont nous pour la seance d'aujourd'hui ?</h1>
 			<p>Noublie pas d'ajouter le nouveau materiel que tu peux utiliser pour ton entrainement</p>
 			<nav>
-				{entrainements.map(({url, title}) => (
-					<Link className={`link ${location === url ? "active" : ""}`} to={url}>
+				{entrainements.map(({url, title}, index) => (
+					<Link key={index} className={`link ${location === url ? "active" : ""}`} to={url}>
 						{title}
 					</Link>
 				))}
