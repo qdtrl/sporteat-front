@@ -9,7 +9,7 @@ const Create = () => {
   const [panier, setPanier] = useState([])
 
   useEffect(() => {
-    get("/wods")
+    get("/exercices")
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -24,10 +24,6 @@ const Create = () => {
   const AddExercice = (exo) => {
     setPanier([...panier, exo]);
   }
-
-  useEffect(() => {
-    console.log(panier);
-  }, [panier]);
 
   return (
     <>

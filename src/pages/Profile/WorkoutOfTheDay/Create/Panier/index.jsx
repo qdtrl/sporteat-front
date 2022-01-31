@@ -8,13 +8,13 @@ const Panier = ({ panier, setPanier }) => {
 
   return (
     <ul className="panier">
-      <h3>Mon panier à exercices : </h3>
+      <h3>Mon panier d'exercices : </h3>
       {panier.map(({exercice_id, name, repetitions, rounds, weight}, index) => (
         <li id={exercice_id} key={index}>
           {name} {weight}kg <em>{repetitions}x{rounds} <button id={exercice_id} onClick={deleteItem}>-</button></em>
         </li>
       ))}
-      <Link className='validate'>Aller valider le panier</Link>
+      <Link to="workout-of-the-day/validate" className='validate'>Aller valider le panier</Link>
     </ul>
   )
 }

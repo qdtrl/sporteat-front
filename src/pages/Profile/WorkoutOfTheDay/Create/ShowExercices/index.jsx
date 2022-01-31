@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const ShowExercices = ({exercice, performance, AddExercice, index}) => {
-  const [exo, setExo] = useState({
-    exercice_id: exercice.id,
-    name: exercice.name,
-    repetitions: performance.repetitions || 1,
-    rounds: 1,
-    weight: performance.weight || 1
-  })
+const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) => {
+  const [exo, setExo] = useState()
+
+  useEffect(() => {
+    setExo({
+      exercice_id: exercice.id,
+      name: exercice.name,
+      repetitions: performance.repetitions || 1,
+      rounds: 1,
+      weight: performance.weight || 1
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exercice]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     AddExercice(exo);
@@ -20,8 +26,10 @@ const ShowExercices = ({exercice, performance, AddExercice, index}) => {
   }
   
   return (
+    <>
+      {exo &&
       <li key={exercice.id} id={exercice.id}>
-        {exercice.name}
+        {equipement?.name} {exercice.name} 
         <form onSubmit={handleSubmit}>
           { exercice.equipement_id !== 1 && <><label>poids</label>
           <input 
@@ -46,7 +54,8 @@ const ShowExercices = ({exercice, performance, AddExercice, index}) => {
             min="1"/>
           <button type="submit">+</button>
         </form>
-      </li>
+      </li>}
+    </>
   )
 }
 
