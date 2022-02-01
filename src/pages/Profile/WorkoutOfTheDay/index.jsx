@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { 
+	useState,
+	useEffect } from 'react';
 import { 
   Switch,
   Route } from "react-router-dom";
@@ -23,7 +25,7 @@ const WorkoutOfTheDay = () => {
 					<Validation panier={panier} setPanier={setPanier}/>
 				</Route> 
 				<Route path="/workout-of-the-day/perform">
-					<Perform panier={panier} setPanier={setPanier}/>
+					<Perform panier={panier}/>
 				</Route> 
 			</Switch>
     </section>
