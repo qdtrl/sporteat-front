@@ -11,6 +11,7 @@ const Timer = ({play, time, setTime, setPlay}) => {
       setMinutes(minutes + 1)
     } else
       setSecondes(time)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time])
 
   useEffect(() => {
