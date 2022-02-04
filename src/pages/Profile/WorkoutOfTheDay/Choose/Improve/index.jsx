@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useFetch } from "../../../../../hooks/useFetch";
 import ShowExercices from '../../../../../components/ShowExercices';
 
-const Improve = ({ setPanier }) => {
+const Improve = ({ saveWorkout }) => {
   const { responseData:data, get} = useFetch(true);
   
   useEffect(() => {
@@ -12,16 +12,10 @@ const Improve = ({ setPanier }) => {
   }, []);
 
   const handleClick = (e) => {
-    const index = e.target.id
-    setPanier(
-      { 
-        wod: 
-        {
-          name: data[index].wod.name,
-          calories: data[index].wod.calories
-        },
-        exercices: data[index].exercices
-      })
+    const index = e.target.id;
+    const { wod, exercices } = data[index];
+    localStorage.removeItem('workout-cart');
+    saveWorkout({wod, exercices});
   }
 
   return (

@@ -4,16 +4,26 @@ import { useLocation } from 'react-router-dom';
 const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) => {
   const location = useLocation().pathname;
   const [exo, setExo] = useState()
-
+  
   useEffect(() => {
-    setExo({
-      id: exercice.id,
-      name: exercice.name,
-      equipement_id: equipement.id,
-      equipement_name: equipement.name,
-      repetitions: performance.repetitions || 1,
-      rounds: 1,
-      weight: performance.weight || 1
+    setExo(
+    {
+      equipement: { 
+        id: equipement.id,
+        name: equipement.name,
+        weight: equipement.weight
+      },
+      exercice: {
+        id: exercice.id,
+        name: exercice.name,
+        categorie: exercice.categorie
+      },
+      performance: {
+        id: performance.id,
+        repetitions: performance.repetitions || 1,
+        rounds: 1,
+        weight: performance.weight || equipement.weight
+      }
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exercice]);
@@ -26,7 +36,7 @@ const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) 
   const handleChange = (e) => {
     e.preventDefault();
     const {name, value} = e.target;
-    setExo({...exo, [name]: value})
+    setExo({...exo, performance: { ...exo.performance ,[name]: Number(value) } })
   }
   
   return (
@@ -40,21 +50,21 @@ const ShowExercices = ({exercice, performance, equipement, AddExercice, index}) 
             type="number"
             name="weight"
             onChange={handleChange}
-            value={exo.weight}
+            value={exo.performance.weight}
             min="0"/></>}
           <label>repetitions</label>
           <input 
             type="number"
             name="repetitions"
             onChange={handleChange}
-            value={exo.repetitions}
+            value={exo.performance.repetitions}
             min="1"/>
           <label>tours</label>
           <input 
             type="number" 
             name="rounds" 
             onChange={handleChange}
-            value={exo.rounds}
+            value={exo.performance.rounds}
             min="1"/>
           { AddExercice ? <button type="submit">+</button> : "" }
         </form>

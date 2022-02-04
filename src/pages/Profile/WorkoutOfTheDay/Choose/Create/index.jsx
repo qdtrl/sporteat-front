@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useFetch } from '../../../../../hooks/useFetch';
-import Panier from '../../../../../components/Panier';
+import Cart from '../../../../../components/Cart';
 import ShowExercices from '../../../../../components/ShowExercices';
 
-const Create = ({ panier, setPanier }) => {
+const Create = ({ workout, saveWorkout }) => {
   const { responseData:data, get} = useFetch(true);
   const [indexShowExercices, setIndexShowExercices] = useState(false);
 
   useEffect(() => {
     get("/exercices")
+    saveWorkout({...workout, wod: { id: 0, name: "Nouvelle Seance", calorie: 0 }})
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -21,12 +22,13 @@ const Create = ({ panier, setPanier }) => {
   }
 
   const AddExercice = (exo) => {
-    setPanier([...panier, exo]);
+    const {wod, exercices} = workout;
+    saveWorkout({ wod, exercices: [...exercices, exo]});
   }
 
   return (
     <>
-      <Panier panier={panier} setPanier={setPanier}/>
+      <Cart workout={workout} saveWorkout={saveWorkout}/>
       <ul className='list equipements'>
       {data?.map(({equipement}, index) => (
         <li id={index} key={index} onClick={handleClickOnEquipement}>

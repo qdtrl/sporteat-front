@@ -7,7 +7,7 @@ import Create from './Create';
 import Flow from './Flow';
 import Improve from './Improve';
 
-const Choose = ({panier, setPanier}) => {
+const Choose = ({workout, saveWorkout}) => {
   const location = useLocation().pathname;
 
 	const entrainements = [
@@ -37,13 +37,13 @@ const Choose = ({panier, setPanier}) => {
 			</nav>
 			<Switch>
 				<Route path={entrainements[0].url} exact>
-					<Create panier={panier} setPanier={setPanier}/>
+					<Create workout={workout} saveWorkout={saveWorkout}/>
 				</Route> 
         <Route path={entrainements[1].url} exact>
-					<Flow panier={panier} setPanier={setPanier}/>
+					<Flow workout={workout} saveWorkout={saveWorkout}/>
 				</Route> 
 				<Route path={entrainements[2].url} exact >
-					<Improve setPanier={setPanier}/>
+					<Improve saveWorkout={saveWorkout}/>
 				</Route> 
 			</Switch>
 		</>

@@ -1,9 +1,9 @@
 import { useEffect,useState } from 'react';
 import { useFetch } from '../../../../../hooks/useFetch';
-import Panier from '../../../../../components/Panier';
+import Cart from '../../../../../components/Cart';
 import ShowExercices from '../../../../../components/ShowExercices';
 
-const Flow = ({ panier, setPanier }) => {
+const Flow = ({ workout, saveWorkout }) => {
   const { responseData:data, get} = useFetch(true);
   const [exerciceType, setExerciceType] = useState(false);
   const [reload, setReload] = useState(false);
@@ -13,22 +13,20 @@ const Flow = ({ panier, setPanier }) => {
   }
 
   useEffect(() => {
+    saveWorkout({...workout, wod: { id: 0, name: "Nouvelle Seance", calorie: 0 }})
     if (exerciceType)
       get(`/exercices/workout`)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exerciceType, reload]);
 
   const AddExercice = (exo) => {
-    setPanier([...panier, exo]);
+    const {wod, exercices} = workout;
+    saveWorkout({ wod, exercices: [...exercices, exo]});
   }
-
-  useEffect(() => {
-    console.log(panier);
-  }, [panier]);
 
   return (
     <>
-      <Panier panier={panier} setPanier={setPanier}/>
+      <Cart workout={workout} saveWorkout={saveWorkout}/>
       <button name="upper-body" onClick={handleOnClick}>Haut du corps</button>
       <button name="lower-body" onClick={handleOnClick}>Bas du corps</button>
       <button name="hit" onClick={handleOnClick}>Cardio</button>
