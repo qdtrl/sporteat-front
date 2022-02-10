@@ -1,10 +1,10 @@
 	import { useState, useEffect } from "react";
-	import { Link } from "react-router-dom";
+	import { Link, useLocation } from "react-router-dom";
 	import { GiHamburgerMenu } from 'react-icons/gi';
 	import logo from "../../../../assets/logo.png";
 	import './index.scss';
 	const MenuHome = () => {
-
+	const location = useLocation().pathname;
 	const navHeight = window.innerHeight/10;
 	const [navToggle, setNavToggle] = useState(false);
 	const [ toggleMenu, setToggleMenu ] = useState(false);
@@ -35,30 +35,31 @@
 				</div>
 			</Link>
 			<div className="navbar__right">
-				<Link className="items" to="/">
+				<Link className={`items p ${location === "/" ? "active" : ""}`} to="/">
 					Accueil
 				</Link> 
-				<Link className="items" to="/sport">
+				<Link className={`items p ${location === "/sport" ? "active" : ""}`} to="/sport">
 					Le sport
 				</Link>  
-				<Link className="items" to="/meal">
+				<Link className={`items p ${location === "/meal" ? "active" : ""}`} to="/meal">
 					Les repas
 				</Link>  
-				<Link className="button__custom" to="/login">
+				<Link className="items button__custom" to="/login">
 					Me connecter
 				</Link>                
 			</div>
 			<div className="navbar__smallscreen">
-				<GiHamburgerMenu color="#202124" fontSize={27} onClick={() => setToggleMenu(true)} />
+				<GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
 				{ toggleMenu &&
 					<div className="overlay flex__center slide__bottom">
-						<Link className="items" to="/">
+						<div className="overlay__close" onClick={() => setToggleMenu(false)}>X</div>
+						<Link className={`items p ${location === "/" ? "active" : ""}`} to="/">
 							Accueil
 						</Link> 
-						<Link className="items" to="/sport">
+						<Link className={`items p ${location === "/sport" ? "active" : ""}`} to="/sport">
 							Le sport
 						</Link>  
-						<Link className="items" to="/meal">
+						<Link className={`items p ${location === "/meal" ? "active" : ""}`} to="/meal">
 							Les repas
 						</Link>  
 						<Link className="button__custom" to="/login">

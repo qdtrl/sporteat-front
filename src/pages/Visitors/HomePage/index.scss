@@ -1,105 +1,121 @@
 @import '../../../config/config.scss';
 
-body {
-    background-image: linear-gradient(to right top, #3d4152, #484f6a, #545d83, #5f6c9d, #6b7bb7, #688cc6, #669cd3, #65addf, #73bed8, #93ccd1, #b7d8d1, #d8e2dc);
-    //background: fixed reapeat 100%;
-    //transition-duration: 0;
-    background-attachment: fixed;
-    //height: 100vh;
-    //background-position: -1% 0%;
-    //position: fixed;
-    //background-position: center;
-    //background-repeat: no-repeat;
-    //background-size: cover;
-    //backface-visibility: hidden;
+section.homepage {
+	background: $color-black;
+	h1 {
+		color: $color-orange;
+	}
+	div.flex {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 2rem 0 ;
+		p {
+			color: $color-white;
+		}
+		div.quote {
+			background-color: $color-orange;
+			height: 30px;
+			width: 5px;
+			margin: 0 1rem;
+		}
+		div.trait {
+			background-color: $color-orange;
+			height: 2px;
+			width: 30px;
+			margin: 0 1rem;
+		}
+	}
+
+	img {
+		width: 80%;
+	}
 }
 
-.homepage-container{
-    display: flex;
+section {
+	&.bg {
+		background: url('../../../assets/images/woman-yoga-mat.jpeg');
+		background-position: center;
+		background-size: cover;
+		background-repeat: repeat;
+		background-attachment: fixed;
+	}
+	&.aboutus {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+		.overlay {
+			inset: 0;
+			color: $color-orange;
+		}
+		.content {
+			width: 100%;
+			h3 {
+				color: $color-white;
+			}
+			p {
+				color: $color-grey;
+				margin: 2rem 0;
+			}
+			.sport {
+				flex: 1;
+				display: flex;
+				justify-content: flex-end;
+				align-items: flex-end;
+				flex-direction: column;
+				text-align: right;
+			}
+			.knife {
+				margin: 2rem	4rem;
+				img {
+					height: 810px;
+				}
+			}
+			.meal {
+				flex: 1;
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				flex-direction: column;
+				text-align: left;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 2000px) {
+	section.aboutus {
+		.overlay h2 {
+			font-size: 4rem;
+		}
+		.content {
+		.sport p,
+		.meal p {
+			margin: 4rem 0;
+		}
+		.knife img {
+			height: 1110px;
+		}
+	}
+}
+}
+@media screen and (max-width: 900px) {
+  .content {
     flex-direction: column;
-    align-items: center;
-    padding-top: 140px;
-    margin-bottom: 30px;
-}
-
-.card-homepage {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  }
+  .knife {
+    margin: 4rem 0;
+  }
 
 }
-
-.container-icons {
-    display: flexbox;
-    
+@media screen and (max-width: 650px) {
+  .overlay {
+    font-size: 1rem;
+  }
 }
-.cards, cards:visited{
-    background-color: $color-black;
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
-    width: 25vw;
-    height: 25vw;
-    text-decoration: none;
-    margin: 1.5rem;
-
-    h3 {
-        margin: 2rem;
-    }
-    .text {
-        padding: 2rem;
-    }
-    h4 {
-        margin: 0;
-    }
-
-    .image {
-        position: relative;
-        border-radius: 100px;
-        width: 100px;
-        height: 100px;
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-    }
-
-    
-}
-
-.header{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    // flex-direction: column;
-    .jumbotron {
-        width: 50%;
-    }
-}
-
-.card-section{
-    padding: 30px;
-    margin: 20px;
-    margin-top: 100px;
-    width: 40vw;
-    min-height: 40vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    transition-delay: 0.3s;
-
-}
-
-.card-section-scrolled{
-    width: 45vw;
-}
-
-
 
 
 

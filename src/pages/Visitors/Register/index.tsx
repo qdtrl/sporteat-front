@@ -9,6 +9,7 @@ import { useFetch } from '../../../hooks/useFetch';
 import { LOGIN } from '../../../stores/actions';
 import { REGEX } from '../../../config/config';
 import Alerts from '../../../components/Alerts';
+import './index.scss';
 
 const Register = () => {
 	const user:any = useSelector((state) => state);
@@ -80,89 +81,70 @@ const Register = () => {
   }
 		
 	return (
-			<section className="signup-form">
-				<div className="signup-container">
+			<section id='signup' className="signup flex__center padding">
+				<div className="bg">
 					<h2>Inscription</h2>
+					<div className='form-container'>
 					<form onSubmit={handleSubmit}>
-						<div className="form-container">
-							<div className="half">
-								<div className='field'>
-									<input 
-										type="text"
-										placeholder=' Prenom'
-										onChange={handleChange}
-										name="lastname"
-										value={userCreate.lastname}
-										className="input"
-									/>
-								</div>
-							</div>
-							<div className="half">
-								<div className='field'>
-									<input 
-										type="text"
-										placeholder=' Nom'
-										onChange={handleChange}
-										name="firstname"
-										value={userCreate.firstname}
-										className="input"
-									/>	
-								</div>						
-							</div>
-						</div>
-						<div className="form-container">
-							<div className="full">
-								<div className='field'>
-									<input 
-										type="email"
-										placeholder=' Email'
-										onChange={handleChange}
-										name="email"
-										value={userCreate.email}
-										className="input"
-									/>	
-								</div>						
-							</div>
-						</div>
-						<div className="form-container">
-							<div className="half">
-								<div className='field'>
-									<input 
-										type="password"
-										placeholder=' Mot de passe'
-										onChange={handleChange}
-										name="password"
-										value={userCreate.password}
-										className="input"
-									/>
-								</div>						
-							</div>
-							<div className="half">
-								<div className='field'>
-									<input 
-										type="password"
-										placeholder=' Confirmez le mot de passe'
-										onChange={handleChange}
-										name="passwordConfirmation"
-										value={userCreate.passwordConfirmation}
-										className="input"
-									/>		
-								</div>				
-							</div>
-						</div>
-						<div className="btn-container">
-							<button 
-								type="submit" 
-								className={`btn ${canBeSubmit ? "" : "btn-error"}`}>
-									Nous rejoindre
-							</button>
-						</div>
-						<div className="link-already-signup">
-							<Link to="/login">
-								J'ai déjà un compte !
-							</Link>
-						</div>     
+						<label>Votre prenom</label>
+						<input 
+							type="text"
+							placeholder='Prenom'
+							onChange={handleChange}
+							name="lastname"
+							value={userCreate.lastname}
+							className="input"
+						/>
+						<label>Votre nom</label>
+						<input 
+							type="text"
+							placeholder='Nom'
+							onChange={handleChange}
+							name="firstname"
+							value={userCreate.firstname}
+							className="input"
+						/>
+						<label>Votre e-mail</label>
+						<input 
+							type="email"
+							placeholder='Email'
+							onChange={handleChange}
+							name="email"
+							value={userCreate.email}
+							className="input"
+						/>	
+						<label>Mot de passe</label>
+						<input 
+							type="password"
+							placeholder='Mot de passe'
+							onChange={handleChange}
+							name="password"
+							value={userCreate.password}
+							className="input"
+						/>
+						<label>Mot de passe confirmation</label>
+						<input 
+							type="password"
+							placeholder='Confirmez le mot de passe'
+							onChange={handleChange}
+							name="passwordConfirmation"
+							value={userCreate.passwordConfirmation}
+							className="input"
+						/>		
+						<button 
+							type="submit" 
+							className={`button__custom btn ${canBeSubmit ? "" : "btn-error"}`}>
+								Nous rejoindre
+						</button>
 					</form>
+					</div>
+					<p className='__signup'>Deja un compte ? <Link 
+						className="signup" 
+						to="/login">
+							Se connecter
+						</Link>
+					</p>
+				
 					{error && <Alerts type={"error"} message={error}/>}
 				</div>
 			</section>

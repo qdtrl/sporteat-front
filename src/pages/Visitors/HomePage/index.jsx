@@ -1,23 +1,50 @@
+import { Link } from "react-router-dom";
 import Register from "../Register";
-import PresentationCards from './PresentationCards';
+import images from '../../../constants/images';
 import './index.scss';
 
 const HomePage = () => {
 	return (
-		<div className="homepage-container">
-			<div className="header">
-				<div className="jumbotron">
-					<h1>Sporteat, </h1>
-					<h2>Le sport sur mesure, jusque dans l'assiette !</h2>
-					<p>On vous propose un suivit <strong>sportif</strong> et <strong>nutrionnel</strong>,</p>
-					<p>afin que vous atteignez rapidement les <strong>objectifs</strong> que vous fixez !</p>
+		<>
+		<section className="homepage wrapper padding">
+			<div className="wrapper__info">
+				<h1>Commence ton aventure,</h1>
+				<div className="flex">
+					<div className="quote"/>
+					<p>Ensemble nous vous suivrons jusqu'au sommets!</p>
 				</div>
-				<Register />
+				<div className="flex">
+					<div className="trait"></div>
+					<Link className="button__custom" to="#signup">S'inscrire</Link>
+				</div>
 			</div>
-			<div className="card-homepage">             
-					<PresentationCards/>
+
+			<div className="wrapper__img">
+				<img src={images.manRunning} alt='running man'/>
 			</div>
-		</div>			
+		</section>
+		<section className="aboutus padding bg flex__center">
+			<div className='overlay flex__center padding'>
+				<h2>SportEat, c'est quoi ?</h2>
+			</div>
+			<div className='content flex__center'>
+				<div className='sport'>
+					<h3>Le sport</h3>
+					<p>La possibilite de creer ses seances de sport prefere et de suivre la progression de ses performances.</p>
+					<Link className='button__custom' to="/sport">En savoir plus</Link>
+				</div>
+				<div className='knife flex__center'>
+					<img src={images.knife} alt='knife' />
+				</div>
+				<div className='meal'>
+					<h3>Les repas</h3>
+					<p>Des recettes sur mesures pour etre au meilleur de sa forme pour la poursuite de ses objectifs.</p>
+					<Link className='button__custom' to="/meal">En savoir plus</Link>
+				</div>
+			</div>
+		</section>
+		<Register />
+		</>		
 	)
 };
 

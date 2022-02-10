@@ -2,19 +2,10 @@ $color-red: #F63F45;
 $color-orange: #F2752E;
 $color-black: #202124;
 $color-white: #FFFFFF;
+$color-grey: #ACACAC;
 
 $font-base: 'Montserrat', sans-serif;
 $font-content: 'Lato', sans-serif;
-
-@mixin logo-text {
-  div.logo {
-    display: inline-flex;
-    color: $color-orange;
-    strong.eat{
-      color: $color-black;
-    }
-  }
-}
 
 .slide__bottom {
   -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
