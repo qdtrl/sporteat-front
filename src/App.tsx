@@ -13,13 +13,14 @@ import Login from './pages/Visitors/Login';
 import SportPresentation from './pages/Visitors/SportPresentation';
 import MealPresentation from './pages/Visitors/MealPresentation/index';
 import MenuHome from './components/Layout/NavBar/NavHome';
+import SideNavBar from './components/Layout/NavBar/SideNavBar';
+
 import { Footer } from './components/Layout/Footer';
 import NoMatch from './pages/NoMatch';
 import Informations from './pages/Profile/Informations';
 import WorkoutOfTheDay from './pages/Profile/WorkoutOfTheDay';
 import MealsOfTheDay from './pages/Profile/MealsOfTheDay';
 import Progression from './pages/Profile/Progression';
-import SideNavBar from './pages/Profile/SideNavBar';
 
 const App:FC = () => {
   const user:any = useSelector((state) => state);

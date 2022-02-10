@@ -1,7 +1,4 @@
-import workoutImage from '../../../../assets/icons/workout.png';
-import menuImage from '../../../../assets/icons/menu.png';
-import followupImage from '../../../../assets/icons/followup.png';
-
+import images from "../../../../constants/index";
 
 const PresentationCards = () => {
 	const cards = [
@@ -12,7 +9,7 @@ const PresentationCards = () => {
 			text: `Pour commencer, c'est simple ! Il vous suffit de renseigner 
 							les equipements que vous possedez chez vous votre forme physique puis la ou les parties du corps vous souhaitez travailler.
 							Ensuite, Sporteat se charge ensuite de vous créer un programme sur mesure.`,
-			image: workoutImage
+			image: images.workout
 		},
 			{
 				name: "menu",
@@ -21,7 +18,7 @@ const PresentationCards = () => {
 				text: `Nous vous guidons pour allier alimentation et sport pour des
 							résultats à la hauteur de vos espérances.
 							Vous bénéficierez ainsi des apports nécessaires et d'un nouveau rythme de vie.`,
-				image: menuImage
+				image: images.menu
 			},
 			{ 
 				name: "followup",
@@ -30,7 +27,7 @@ const PresentationCards = () => {
 				text: `Parque nous savons qu'il est important que vous puissiez avoir un regard sur votre avancée,
 							nous vous propons un reporting d'ensemble avec des graphiques et des chiffres concrets
 							pour vous encourager dans votre progression !`,
-				image: followupImage
+				image: images.followup
 			},
 		]
 	return (

@@ -1,41 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:ital@1&display=swap%27');
+$color-red: #F63F45;
+$color-orange: #F2752E;
+$color-black: #202124;
+$color-white: #FFFFFF;
 
+$font-base: 'Montserrat', sans-serif;
+$font-content: 'Lato', sans-serif;
 
-$primary-background: #012895d8;
-$primary-background-darker: #021c63d8;
-$secondary-background: #ffe5d9; 
-$primary-color: #D8E2DC;
-$secondary-color: #4c9bf5;
-$tercary-color: #3a8816;
-$white: #EEEBD3;
-
-$title-font: 'Montserrat', sans-serif;
-$content-font: 'Lato', sans-serif;
-
-p, div {
-    font-family: 'Lato', sans-serif;
-    color: $primary-color;
+@mixin logo-text {
+  div.logo {
+    display: inline-flex;
+    color: $color-orange;
+    strong.eat{
+      color: $color-black;
+    }
+  }
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Montserrat', sans-serif;
+.slide__bottom {
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-html, body {
-    background-image: linear-gradient(to right top, #3d4152, #484f6a, #545d83, #5f6c9d, #6b7bb7, #688cc6, #669cd3, #65addf, #73bed8, #93ccd1, #b7d8d1, #d8e2dc);
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    min-height: 90vh;
-    min-width: 100vw;
-    scroll-behavior: smooth;
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 
-* {
-    transition-duration: 0.5s;
-}
-
-
-.override-nav {
-    padding-top: 10vh;
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }

@@ -1,3 +1,5 @@
+@import '../../../config/config.scss';
+
 body {
     background-image: linear-gradient(to right top, #3d4152, #484f6a, #545d83, #5f6c9d, #6b7bb7, #688cc6, #669cd3, #65addf, #73bed8, #93ccd1, #b7d8d1, #d8e2dc);
     //background: fixed reapeat 100%;
@@ -34,7 +36,7 @@ body {
     
 }
 .cards, cards:visited{
-    background-color: $primary-background;
+    background-color: $color-black;
     display: flex;
     flex-direction: column;
     // justify-content: center;
@@ -79,23 +81,6 @@ body {
         width: 50%;
     }
 }
-
-    .hp-cta{
-        background-color: $tercary-color;
-        color: $secondary-background;
-        border-radius: 20px;
-        border: none;
-        min-height: 30px;
-        width: 20vw;
-        margin-top: 40px;
-        margin-bottom: 50px;
-        padding: 10px;
-    }
-
-    .hp-cta:hover{
-        background-color: $secondary-background;
-        color: $tercary-color;
-    }
 
 .card-section{
     padding: 30px;

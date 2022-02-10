@@ -74,7 +74,7 @@
 
 /* Effet hover sur la liste */
 .items-list-menu:hover{
-      color: $primary-background;
+      color: $color-black;
       opacity: 0.6;
   }
 
@@ -95,8 +95,8 @@
     border-bottom-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
-    border-top-color: $primary-color;
-    border-bottom-color: $primary-color;
+    border-top-color: $color-black;
+    border-bottom-color: $color-black;
     transform: scale(0.1, 1);
   }
   .items-list-menu:hover span {

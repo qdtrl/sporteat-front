@@ -1,6 +1,6 @@
 import Register from "../Register";
 import PresentationCards from './PresentationCards';
-
+import './index.scss';
 
 const HomePage = () => {
 	return (

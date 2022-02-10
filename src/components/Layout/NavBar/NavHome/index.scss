@@ -1,78 +1,48 @@
-.nav-home {
-  top: 0;  
-  width: 100vw;
-  height: 10vh;
-  position: fixed;
-  background-color: transparent;
-  color: $primary-background;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-family: $content-font;
-  margin: 0px;
-  z-index: 5;
-}
-    
-    .nav-right{
-        width: 70vw;
-        display: inline-flex;
-        justify-content: flex-end;
-        margin-right: 10vw;
+@import '../../../../config/config.scss';
+
+nav {
+  &.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    &.scrolled {
+      background-color: $color-black;
+    }
+      
+    .navbar__left{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include logo-text;
+      img {
+        width: 100px;
+      }
     }
 
-    .nav-left{
-        width: 30vw;
-        display: inline-flex;
-        align-items: center;
+    .navbar__right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .items {
+        margin: 0 1rem;
         text-decoration: none;
-    }
-
-    .text-logo{
-      display: inline-flex;
-      font-size: 35px;
-      font-family: $title-font;
-    
-      .sport{
-        color: $primary-background;
+        transition: 0.1s ease;
+        cursor: pointer;
+        &:hover {
+          border-bottom: 2px solid $color-orange;
+        }
+        
       }
-      .eat{
-        color: $primary-color;
-      }
+    }
   }
-    .navItems{
-      position: relative;
-      color: $primary-background;
-      margin-left: 25px;
-      text-decoration: none;
-      line-height: 40px;
-    }
+}
 
-    .navItems:hover{
-      font-size: 15px;
-    }
-
-    .navItems:before {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 1px;
-      bottom: 0;
-      left: 0;
-      background-color: $primary-background;
-      visibility: hidden;
-      transition: all 0.3s ease-in-out;
-    }
-    .navItems:hover:before {
-      visibility: visible;
-      width: 100%;
-    }
-
-  
-
-  .scrolledNavbar {
-    background-color: $primary-background;
+@media screen and (min-width: 2000px) {
+  nav.navbar img.logo {
+    width: 210px;
   }
-
-.logo {
-  height: 20vh;
 }

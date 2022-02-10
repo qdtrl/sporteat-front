@@ -16,7 +16,7 @@
         height: 90%;
         display: flex;
         align-items: center;
-        color : $primary-background;
+        color : $color-black;
         border-radius: 2em 0 0 2em;
         pointer-events: none;
         font-weight: bold;
@@ -40,10 +40,10 @@
 
 .error {
     .input{
-        background-color: $tercary-color;
-        border: solid 2px $tercary-color;
+        background-color: $color-red;
+        border: solid 2px $color-red;
         &:hover{
-            border: solid 2px $tercary-color;
+            border: solid 2px $color-red;
         }
     }
 }
