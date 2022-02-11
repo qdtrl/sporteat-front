@@ -15,7 +15,7 @@ const HomePage = () => {
 				</div>
 				<div className="flex">
 					<div className="trait"></div>
-					<Link className="button__custom" to="#signup">S'inscrire</Link>
+					<Link className="button__custom" to="/signup">S'inscrire</Link>
 				</div>
 			</div>
 
@@ -23,7 +23,7 @@ const HomePage = () => {
 				<img src={images.manRunning} alt='running man'/>
 			</div>
 		</section>
-		<section className="aboutus padding bg flex__center">
+		<section className="aboutus padding bg-sport flex__center">
 			<div className='overlay flex__center padding'>
 				<h2>SportEat, c'est quoi ?</h2>
 			</div>
@@ -44,6 +44,26 @@ const HomePage = () => {
 			</div>
 		</section>
 		<Register />
+		<section className="contactus padding bg-meal flex__center">
+			<form>
+				<h2>Nous contacter</h2>
+				<div className="details">
+					<div className="half">
+						<label htmlFor="">Votre prenom:</label>
+						<input type="text" name="name" placeholder="Prenom"/>
+					</div>
+					<div className="half">
+						<label htmlFor="">Votre e-mail:</label>
+						<input type='email' name="email" placeholder="nom@mail.com"/>
+					</div>
+				</div>
+				<div className="full">
+					<label htmlFor="">Votre question:</label>
+					<textarea name="question" placeholder="Posez votre question"/>
+				</div>
+				<button className="button__custom">Envoyer le message</button>
+			</form>
+		</section>
 		</>		
 	)
 };

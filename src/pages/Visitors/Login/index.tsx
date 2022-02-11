@@ -4,12 +4,12 @@ import {
 	ChangeEvent, 
 	FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch';
 import { LOGIN } from '../../../stores/actions';
 import { REGEX } from '../../../config/config';
 import Alerts from '../../../components/Alerts';
-
+import './index.scss';
 
 const Login = () => {
 	const user:any = useSelector((state) => state);
@@ -69,46 +69,40 @@ const Login = () => {
 	}
 
 	return(
-		<section className="signup-form ">
-			<div className="signup-container">
+		<section className="signup login flex__center padding">
+			<div className="bg">
 				<h2>Connexion</h2>
+				<div className='form-container'>
 				<form onSubmit={handleLogin}>
-					<div className="form-container">
-						<div className="half">
-							<div className='field'>
-										<input 
-											type="email"
-											placeholder=' Email'
-											onChange={handleChange}
-											name="email"
-											value={userLogin.email}
-											className="input"
-										/>	
-							</div>							
-						</div>
-					</div>
-					<div className="form-container">
-						<div className="half">
-							<div className='field'>
-								<input 
-									type="password"
-									placeholder=' Mot de passe'
-									onChange={handleChange}
-									name="password"
-									value={userLogin.password}
-									className="input"
-								/>
-							</div>							
-						</div>
-					</div>
-					<div className="btn-container">
-							<button 
-								type="submit" 
-								className={`btn ${canBeSubmit ? "" : "btn-error"}`}>
-								Se connecter
-							</button>
-					</div>
+					<input 
+						type="email"
+						placeholder=' Email'
+						onChange={handleChange}
+						name="email"
+						value={userLogin.email}
+						className="input"
+					/>	
+					<input 
+						type="password"
+						placeholder=' Mot de passe'
+						onChange={handleChange}
+						name="password"
+						value={userLogin.password}
+						className="input"
+					/>
+					<button 
+						type="submit" 
+						className={`button__custom btn ${canBeSubmit ? "" : "btn-error"}`}>
+						Se connecter
+					</button>
 				</form>
+				</div>
+				<p className='__signup'>Pas encore de compte ? <Link 
+					className="signup" 
+					to="/login">
+						Creer un compte
+					</Link>
+				</p>
 				{error && <Alerts type={"error"} message={error}/>}
 			</div>
 		</section>

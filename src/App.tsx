@@ -21,6 +21,7 @@ import Informations from './pages/Profile/Informations';
 import WorkoutOfTheDay from './pages/Profile/WorkoutOfTheDay';
 import MealsOfTheDay from './pages/Profile/MealsOfTheDay';
 import Progression from './pages/Profile/Progression';
+import Register from './pages/Visitors/Register';
 
 const App:FC = () => {
   const user:any = useSelector((state) => state);
@@ -56,6 +57,9 @@ const App:FC = () => {
         </Route>
         <Route path="/login" exact>
           <Login/>
+        </Route>
+        <Route path="/signup" exact>
+          <Register/>
         </Route>
         <Route path="/sport" exact>
           <SportPresentation />

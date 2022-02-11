@@ -33,12 +33,19 @@ section.homepage {
 }
 
 section {
-	&.bg {
+	&.bg-sport {
 		background: url('../../../assets/images/woman-yoga-mat.jpeg');
 		background-position: center;
 		background-size: cover;
-		background-repeat: repeat;
+		background-repeat: no-repeat;
 		background-attachment: fixed;
+	}
+	&.bg-meal {
+		background: url('../../../assets/images/preparation-repas.jpeg');
+		background-position: center;
+		background-size: cover;
+		background-repeat: repeat;
+		background-attachment: fixed;	
 	}
 	&.aboutus {
 		position: relative;
@@ -84,6 +91,51 @@ section {
 			}
 		}
 	}
+	&.contactus {
+		form {
+			h2 {
+				color: $color-orange;
+				margin-bottom: 1rem;
+			}
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			label {
+				color: $color-white;
+				text-align: left;
+			}
+			textarea {
+				height: 150px;
+			}
+			input, textarea {
+				width: 100%;
+				background: rgba(0,0,0,0.5);
+        box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.03);
+        border-radius: 8px; 
+        font-size: 26px;
+        padding: 0.5rem 1rem;
+        border: 0;
+        margin-bottom: 0.8rem;
+				color: $color-white;
+			}
+			div.details {
+				display: flex;
+				justify-content: space-between;
+				div.half {
+					width: 48%;
+					display: flex;
+					flex-direction: column;
+				}
+			}
+			div.full {
+				width: 100%;
+			}
+			.button__custom {
+				width: 50%;
+			}
+		}
+	}
 }
 
 @media screen and (min-width: 2000px) {
@@ -115,6 +167,18 @@ section {
   .overlay {
     font-size: 1rem;
   }
+	section.contactus form {
+		div.details {
+		width: 100%;
+		flex-direction: column;
+		div.half {
+			width: 100%;
+		}
+	}
+		.button__custom {
+			width: 100%;
+		}
+	}
 }
 
 

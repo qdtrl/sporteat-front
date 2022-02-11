@@ -95,8 +95,13 @@ nav {
 }
 
 @media screen and (min-width: 2000px) {
-  nav.navbar img.logo {
+  nav.navbar .navbar__left {
+    div.logo {
+      font-size: 70px;
+    }
+    img.logo {
     width: 210px;
+    }
   }
 }
 

@@ -81,7 +81,7 @@ const Register = () => {
   }
 		
 	return (
-			<section id='signup' className="signup flex__center padding">
+			<section className="signup flex__center padding">
 				<div className="bg">
 					<h2>Inscription</h2>
 					<div className='form-container'>

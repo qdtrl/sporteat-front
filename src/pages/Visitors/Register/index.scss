@@ -2,13 +2,12 @@
 
 section.signup {
   div.bg {
+    margin: 2em 0;
     padding: 1rem 2rem;
     background: url('../../../assets/images/healthy-food.jpeg');
     background-position: center;
     background-repeat: no-repeat;
 		background-size: cover;
-		// background-repeat: repeat;
-		// background-attachment: fixed;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -37,6 +36,7 @@ section.signup {
         padding: 0.5rem 1rem;
         border: 0;
         margin-bottom: 0.8rem;
+        color: $color-white;
       }
       .button__custom {
         border-radius: 8px;
