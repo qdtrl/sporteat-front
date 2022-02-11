@@ -43,12 +43,12 @@ p {
 
 h1 {
   line-height: 78px;
-  font-size: 64px;
+  font-size: 54px;
 }
 
 h2 {
-  line-height: 65px;
-  font-size: 50px; 
+  line-height: 35px;
+  font-size: 35px; 
 }
 
 h3 {
@@ -66,13 +66,25 @@ h5 {
   line-height: 36px;
 }
 
-
-
-
 .flex__center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex__profile {
+  display: flex;
+  align-items: center;
+  padding: 0 4rem 0 30%;
+  justify-content:center;
+  flex-direction: column;
+  min-height: 91vh;
+}
+
+@media screen and (max-width: 1150px) {
+  .flex__profile {
+    padding: 4rem 2rem;
+  }
 }
 
 section.padding {
@@ -104,6 +116,35 @@ section.padding {
     border: none;
     outline: none;
     cursor: pointer;
+    &:hover {
+      color: $color-grey;
+    }
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1rem;
+	justify-content: space-around;
+	align-items: center;
+	text-align: left;
+	div.half {
+		margin: 1rem;
+		display: flex;
+		flex-direction: column;
+		label {
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+		input, select {
+			width: 200px;
+			padding: 0.5rem 0.5rem;
+			background-color: $color-lighter-grey;
+			border: 1px solid $color-grey;
+			border-radius: 6px;
+		}
+	}
 }
 
 
@@ -148,7 +189,7 @@ section.padding {
   }
   h1, h2, h3 {
     font-size: 45px;
-    line-height: 70px;
+    line-height: 40px;
   }
 }
 
@@ -169,7 +210,13 @@ section.padding {
       width: 100%;
     }
   }
+  
+  h2 {
+    line-height: 40px;
+    font-size: 34px;
+  }
   h3 {
+    line-height: 40px;
     font-size: 27px;
   }
 }
@@ -187,6 +234,6 @@ section.padding {
 
   h1, h2, h3 {
     font-size: 20px;
-    line-height: 70px;
+    line-height: 30px;
   }
 }

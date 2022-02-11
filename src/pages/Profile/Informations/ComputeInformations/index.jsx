@@ -4,6 +4,7 @@ import {
 import { useSelector } from 'react-redux';
 import { useFetch } from '../../../../hooks/useFetch';
 import Alerts from '../../../../components/Alerts'
+import './index.scss';
 
 const ComputeInformations = () => {
 	const user = useSelector((state) => state);
@@ -66,25 +67,20 @@ const ComputeInformations = () => {
 		<>
 			<h2>{firstTime ? "Rentrer" : "Modifier"} les champs pour les calculs des repas</h2>
 			<form onSubmit={handleSubmit}>
-				<div className="form-container">
-					<div className="half">
+					<div className='half'>
 						<label htmlFor='age'> Votre âge ?</label>
-						<br/>
-						<div className='field'>
-							<input 
-								id="age"
-								type="number"
-								placeholder=' Age'
-								onChange={handleChange}
-								name="age"
-								value={userData.age}
-								className="input"
-							/>
-						</div>
+						<input 
+							id="age"
+							type="number"
+							placeholder=' Age'
+							onChange={handleChange}
+							name="age"
+							value={userData.age}
+							className="input"
+						/>
 					</div>
-					<div className="half">
+					<div className='half'>
 						<label htmlFor='sexe'> Vous êtes... ? </label>
-						<br/>
 						<select
 							id="sexe"
 							value={userData.sexe}
@@ -96,58 +92,46 @@ const ComputeInformations = () => {
 							<option value="woman">Femme</option>
 						</select>
 					</div>
-				</div>
-				<div className="form-container">
-					<div className="half">
+					<div className='half'>
 						<label htmlFor='height'> Votre taille (m)? </label>
-						<br/>
-						<div className='field'>
-							<input 
-								id="heigt"
-								type="number"
-								placeholder=' Taille'
-								onChange={handleChange}
-								name="height"
-								value={userData.height}
-								className="input"
-							/>
-						</div>
+						<input 
+							id="heigt"
+							type="number"
+							placeholder=' Taille'
+							onChange={handleChange}
+							name="height"
+							value={userData.height}
+							className="input"
+						/>
 					</div>
-					<div className="half">
+					<div className='half'>
 						<label htmlFor='weight'> Votre poids (kg)? </label>
-						<br/>
-						<div className='field'>
-							<input 
-								id="weight"
-								type="number"
-								placeholder=' Poids'
-								onChange={handleChange}
-								name="weight"
-								value={userData.weight}
-								className="input"
-							/>
-						</div>
+						<input 
+							id="weight"
+							type="number"
+							placeholder=' Poids'
+							onChange={handleChange}
+							name="weight"
+							value={userData.weight}
+							className="input"
+						/>
 					</div>
-				</div>
-				<div className="form-container">
-					<div className="half">
-					<label htmlFor='activityType'>Etes-vous plutôt... ?</label>
-					<br/>
-					<select
-						id="activityType"
-						value={userData.activity}
-						onChange={handleChange}
-						name="activity"
-					>
-						<option value="">--Choisie ton niveau d'activite--</option>
-						<option value="sedentary">Sédentaire</option>
-						<option value="active">Actif</option>
-						<option value="athletic">Athletique</option>
-					</select>
+					<div className='half'>
+						<label htmlFor='activityType'>Etes-vous plutôt... ?</label>
+						<select
+							id="activityType"
+							value={userData.activity}
+							onChange={handleChange}
+							name="activity"
+						>
+							<option value="">--Choisie ton niveau d'activite--</option>
+							<option value="sedentary">Sédentaire</option>
+							<option value="active">Actif</option>
+							<option value="athletic">Athletique</option>
+						</select>
 					</div>
-					<div className="half">
+					<div className='half'>
 						<label htmlFor='objectif'> Quel est votre objectif ? </label>
-						<br/>
 						<select
 							id="objectif"
 							value={userData.objectif}
@@ -160,15 +144,12 @@ const ComputeInformations = () => {
 							<option value="build">Se muscler</option>
 						</select>
 					</div>
-				</div>			 
-				<div className="btn-container">
-					<button 
-						type="submit" 
-						className={`btn ${canBeSubmit ? "" : "btn-error"}`}>
-						{ firstTime ? "Valider" : "Modifier" }
-					</button>
-				</div>   
 			</form>
+			<button 
+				type="submit" 
+				className={`button__custom btn ${canBeSubmit ? "" : "btn-error"}`}>
+				{ firstTime ? "Valider" : "Modifier" }
+			</button>
 			{isLoading && 
 			<Alerts type={"success"} message={"Les paramètres ont été modifiés"}/>}
 		</>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useFetch } from '../../../hooks/useFetch'
 import Menu from '../../../components/Repas';
-
+import './index.scss';
 
 const MealsOfTheDay = () => {
   const { isLoading, responseData:Mod , get} = useFetch(true);
@@ -17,8 +17,8 @@ const MealsOfTheDay = () => {
     <>
       { (!Mod && isLoading) && <p>2 sec ça charge</p>}
       { Mod && 
-      <div className="menu-of-the-day"> 
-      <h1>Menus du jour</h1>
+      <div className="menu-of-the-day flex__profile"> 
+        <h1>Menus du jour</h1>
         <p>Objectif de la journée : {Mod.calories} calories</p> 
           { Mod.meals.map((meal, index) => (
             <Menu

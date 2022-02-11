@@ -1,11 +1,14 @@
-
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './index.scss';
 
-export const Footer = () => {
+
+const Footer = () => {
+	const user = useSelector((state) => state);
 	const location = useLocation().pathname;
     return (
 			<footer className="container">
+				{ !user.isLogged &&
        	<section className="section">
 					<div className="description">
 						<Link className="logo" to="/">                
@@ -33,11 +36,13 @@ export const Footer = () => {
 					</nav>
 					<address className="">
 						<h3>Contactez-nous</h3>
-						<p>E-mail: <a href="mailto:jcsailing@gmail.com">contact@se.fr</a> </p>
+						<p>E-mail: <a href="mailto:contact@sporteat.com">contact@sporteat.fr</a> </p>
 					</address>
-				</section>
+				</section> }
 				<div className='line'/>
         <p className="mentions">© 2022 <span>Sport</span>Eat, tous droits réservés.</p>
       </footer>
     )
 }
+
+export default Footer;

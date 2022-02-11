@@ -1,27 +1,62 @@
+@import '../../../config/config.scss';
+
 section.update-informations-form {
-  margin-top: 4rem;
-  height: 50vh;
-  max-height: 50vh;
-  nav.nav-informations {
+  nav.informations {
     width: 100%;
-    background-color: $color-black-darker;
+    color: $color-white;
     display: flex;
+    align-items: center;
     justify-content: space-around;
-    .item-menu {
+    .item {
       padding: 0.8rem;
       width: 100%;
       text-align: center;
-      border: 1px solid black;
-      &:hover {
-        color: blue;
-      }
+      background-color: $color-blue;
+      border: 2px solid $color-blue;
       &.active {
-        background-color: blue;
+        background-color: $color-white;
+        color: $color-blue;
+      }
+      &.last {
+        border-radius: 0 50px 50px 0;
+      }
+      &.first {
+        border-radius: 50px 0 0 50px;
+      }
+      &.center {
+        border-left-color: $color-darker-blue;
+        border-right-color: $color-darker-blue;
+      }
+      &:hover {
+        color: $color-grey;
       }
     }
-    a {
-      color: white;
-      text-decoration: none;
+  }
+  div.informations-container {
+    background-color: $color-white;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    h2 {
+      color: $color-blue;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section.update-informations-form nav.informations {
+    display: flex;
+    flex-direction: column;
+    .item {
+      &.last, &.first {
+        border-radius: 0;
+      }
+      &.center {
+        border-left-color: $color-blue;
+        border-right-color: $color-blue;
+      }
     }
   }
 }

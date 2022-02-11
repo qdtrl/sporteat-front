@@ -5,7 +5,7 @@ import womanYogaMat from '../assets/images/woman-yoga-mat.jpeg';
 import manRunning from '../assets/images/man-running.jpeg'
 import womanShoes from '../assets/images/woman-shoes.jpeg'
 import knife from '../assets/images/knife.png';
-
+import profilPicture from '../assets/images/profil-picture.jpeg';
 
 const images = { 
   knife,
@@ -14,6 +14,7 @@ const images = {
   workout, 
   womanYogaMat, 
   manRunning, 
-  womanShoes };
+  womanShoes,
+profilPicture };
 
 export default images;

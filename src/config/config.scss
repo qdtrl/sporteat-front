@@ -3,6 +3,9 @@ $color-orange: #F2752E;
 $color-black: #202124;
 $color-white: #FFFFFF;
 $color-grey: #ACACAC;
+$color-lighter-grey: #F6F6F6;
+$color-blue: #2F75EC;
+$color-darker-blue: #1E58BB;
 
 $font-base: 'Montserrat', sans-serif;
 $font-content: 'Lato', sans-serif;
@@ -14,8 +17,8 @@ $font-content: 'Lato', sans-serif;
 
 @-webkit-keyframes slide-bottom {
   0% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -25,11 +28,64 @@ $font-content: 'Lato', sans-serif;
 
 @keyframes slide-bottom {
   0% {
-    -webkit-transform: translateY(-25%);
-            transform: translateY(-25%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
   100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
+  }
+}
+
+.slide__right {
+  -webkit-animation: slide-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.slide__left {
+  -webkit-animation: slide-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }

@@ -4,6 +4,7 @@ import { useFetch } from '../../../../hooks/useFetch';
 import { UPDATE } from '../../../../stores/actions';
 import { REGEX } from '../../../../config/config';
 import Alerts from '../../../../components/Alerts';
+import './index.scss';
 
 const UpdateRegister = () => {
 	const dispatch = useDispatch();
@@ -65,54 +66,46 @@ const UpdateRegister = () => {
 		<>
 			<h2>Modifier mes paramètres</h2>
 			<form onSubmit={handleSubmit}>
-				<div className="form-container">
-					<div className="half">
-						<div className='field'>
-							<input 
-								type="text"
-								placeholder=' Prenom'
-								onChange={handleChange}
-								name="lastname"
-								value={userData.lastname}
-								className="input"
-							/>
-						</div>
-					</div>
-					<div className="half">
-						<div className='field'>
-							<input 
-								type="text"
-								placeholder=' Nom'
-								onChange={handleChange}
-								name="firstname"
-								value={userData?.firstname}
-								className="input"
-							/>	
-						</div>						
-					</div>
+				<div className="half">
+					<label>Prenom</label>
+					<input 
+						type="text"
+						placeholder=' Prenom'
+						onChange={handleChange}
+						name="lastname"
+						value={userData.lastname}
+						className="input"
+					/>
 				</div>
-				<div className="form-container">
-					<div className="full">
-						<div className='field'>
-							<input 
-								type="email"
-								placeholder=' Email'
-								onChange={handleChange}
-								name="email"
-								value={userData?.email }
-								className="input"
-							/>	
-						</div>						
-					</div>
-				</div>
-				<div className="btn-container">
-					<button 
-						type="submit" 
-						className={`btn ${canBeSubmit ? "" : "btn-error"}`}>
-							Modifier
-					</button>
-				</div>
-			</form>
+				<div className="half">
+					<label>Nom</label>
+					<input 
+						type="text"
+						placeholder=' Nom'
+						onChange={handleChange}
+						name="firstname"
+						value={userData?.firstname}
+						className="input"
+					/>	
+				</div>						
+			
+				<div className='half'>
+					<label>e-mail</label>
+					<input 
+						type="email"
+						placeholder=' Email'
+						onChange={handleChange}
+						name="email"
+						value={userData?.email }
+						className="input"
+					/>	
+				</div>						
+				</form>
+				<button 
+					type="submit" 
+					className={`button__custom btn ${canBeSubmit ? "" : "btn-error"}`}>
+						Modifier
+				</button>
 			{(responseData && !error) && <Alerts type={"success"} message={"Les paramètres ont été modifiés"}/> }
 
 			{error && <Alerts type={"error"} message={error}/>}

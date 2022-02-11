@@ -7,12 +7,12 @@ const Ingredient = ({ingredient}:any) => {
       return `${ingredient.weight} kg`
     }
     if (ingredient.quantity) {
-      return `${ingredient.quantity} x`
+      return `x ${ingredient.quantity}`
     }
   }
   return (
     <>
-      <p>{handleMesure()} - {ingredient.name}</p>
+      <p>- {ingredient.name} {handleMesure()}</p>
     </>
   )
 }

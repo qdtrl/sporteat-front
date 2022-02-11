@@ -1,52 +1,97 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT } from '../../../../stores/actions';
-import icons from '../../../../constants/index';
+import { 
+	MdBadge,
+	MdRestaurant,
+	MdShowChart,
+	MdFitnessCenter,
+	MdOutlinePowerSettingsNew,
+	MdHouse } from 'react-icons/md';
+import images from '../../../../constants/images.jsx';
+import './index.scss';
 
 const SideNavBar = () => {
 	const dispatch = useDispatch();
+	const user = useSelector((state) => state);
+	const [ toggleMenu, setToggleMenu ] = useState(false);
 
 	const handleLogout = () => {
 		dispatch( { type: LOGOUT } );
 	};
 
 	return (
-		<div className="profile-menu">
-			<div className="profile-picture-container">
-				<img className="profile-picture" src={""} alt="nom de l'utilisateur"/>
-			</div>
-			<ul className="list-menu"> 
-				<Link className="link-menu" to="/workout-of-the-day/choose">
-					<li className="items-list-menu">
-						<img className="icons-menu" src={icons.sport} alt="icône entraînement"/>
-						Entraînement du jour
-					</li> 
-				</Link>
-				<Link className="link-menu" to="/meals-of-the-day">
-					<li className="items-list-menu">
-						<img className="icons-menu" src={icons.menu} alt="icône menu"/>
-						Menus du jour
-					</li> 
-				</Link>
-				<Link className="link-menu" to="/progression">
-					<li className="items-list-menu">
-						<img className="icons-menu" src={icons.statistics} alt="icône progression"/>
-						Progression
-					</li> 
-				</Link>
-				<Link className="link-menu" to="/informations/compute-informations">   
-					<li className="items-list-menu">
-						<img className="icons-menu" src={icons.informations} alt="icône informations"/>
-						Informations
-					</li>  
-				</Link>
-				<button 
-					className="items-list-menu" 
-					onClick={handleLogout}>
-					Se déconnecter
-				</button>
-			</ul>
-		</div>
+		<section>
+			<nav className="profile">
+				<div className="user-container">
+					<img className="profile-picture" src={images.profilPicture} alt="nom de l'utilisateur"/>
+					{`${user.firstname} ${user.lastname}`}
+				</div>
+				<ul className="items"> 
+					<Link className="item" to="/workout-of-the-day/choose">
+						<MdFitnessCenter/>
+						<p>Entraînement du jour</p>	
+					</Link>
+					<Link className="item" to="/meals-of-the-day">
+						<MdRestaurant />
+						<p>Menus du jour</p>
+					</Link>
+					<Link className="item" to="/progression">
+						<MdShowChart/>
+						<p>Progression</p>
+					</Link>
+					<Link className="item" to="/informations/compute-informations">   
+						<MdBadge/>
+						<p>Informations</p>
+					</Link>
+					<div className='line'/>
+					<div className="item" onClick={handleLogout}>
+						<MdOutlinePowerSettingsNew/>
+						<p>Déconnexion</p>
+					</div>
+				</ul>
+			</nav>
+			<nav className="profile__smallscreen">
+				<div className='user-container'>			
+					<img className="profile-picture" onClick={() => setToggleMenu(!toggleMenu)} src={images.profilPicture} alt="nom de l'utilisateur"/>
+					{ toggleMenu && <p className='p'>{`${user.firstname} ${user.lastname}`}</p> }
+				</div>
+				{ toggleMenu &&
+					<div className="overlay flex__center slide__right">
+						<div className="overlay__close" onClick={() => setToggleMenu(false)}>X</div>
+						<Link className='item' onClick={() => setToggleMenu(false)} to="/">
+							<MdHouse size='27' />
+							<p>Accueil</p>
+						</Link> 
+						<Link className='item' onClick={() => setToggleMenu(false)} to="/workout-of-the-day/choose">
+							<MdFitnessCenter size='27'/>
+							<p>Entraînement du jour</p>
+						</Link>  
+						<Link className='item' onClick={() => setToggleMenu(false)} to="/meals-of-the-day">
+							<MdRestaurant  size='27'/>
+							<p>Menus du jour</p>	
+						</Link>  
+						<Link className='item' onClick={() => setToggleMenu(false)} to="/progression">
+							<MdShowChart size='27'/>
+							<p>Progression</p>
+						</Link> 
+						<Link className="item" onClick={() => setToggleMenu(false)} to="/informations/compute-informations">   
+							<MdBadge/>
+							<p>Informations</p>
+						</Link>
+						<div className='line'/>
+						<div className='item' onClick={() => {
+							handleLogout()
+							setToggleMenu(false);
+						}}>
+							<MdOutlinePowerSettingsNew size='27'/>
+							<p>Déconnexion</p>
+						</div> 
+					</div>
+				}
+			</nav>
+		</section>
 	)
 }
 

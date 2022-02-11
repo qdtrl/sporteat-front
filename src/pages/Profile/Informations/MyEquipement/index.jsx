@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { useFetch } from '../../../../hooks/useFetch';
-
+import './index.scss';
 
 const reducer = (previousState , payload) => {
   const { type, value } = payload;
@@ -64,8 +64,9 @@ const  MyEquipement = () => {
     setAllEquipement({type: "remove", value: {index:id, data}})
     patch(`/my_equipements/${data.id}`)
   }
+  
   return (
-    <div className="equipements-container">
+    <div className="equipements">
       <ul className="equipement-items">
         <label>L'équipement que je possede : </label>
         {myEquipement?.map((equipement, index) => (
@@ -74,19 +75,19 @@ const  MyEquipement = () => {
             id={index}
             key={index}
             onClick={removeUserItem}>
-              {equipement.name} {equipement.weight? equipement.weight : "" }
+              {equipement.name} {equipement.weight? `${equipement.weight} kg` : "" }
           </li>
         ))}
       </ul>
-      <label>Tout les équipements de nos exercices :</label>
       <ul className="equipement-items">
+        <label>Tout les équipements de nos exercices :</label>
         {allEquipement?.map((equipement, index) => (
           <li
             className="equipement-item" 
             id={index}
             key={index}
             onClick={addUserItem}>
-              {equipement.name} {equipement.weight? equipement.weight : "" }
+              {equipement.name} {equipement.weight? `${equipement.weight} kg` : "" }
           </li>
         ))} 
       </ul>

@@ -15,11 +15,10 @@ const Menu = ({meal}:any) => {
   }
 
   return (
-  
-      <div className="menu">
-        <h1>{handleTitle()}</h1>
-        <h2>{name}  <span>{calories} calories</span></h2>
-         
+    <div className="menu">
+      <h2>{handleTitle()}</h2>
+      <h3>{name}</h3>
+      <span>{calories} calories</span>
       <div className="ingredients"> 
         { ingredients.map((ingredient:any, index:number) => (
           <Ingredient
@@ -28,9 +27,7 @@ const Menu = ({meal}:any) => {
             />
         ))}
       </div>
-      
-      </div>
-
+    </div>
   )
 }
 
