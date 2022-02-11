@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carrousel from '../../../../components/Carrousel';
 import Timer from '../../../../components/Timer';
+import './index.scss';
 
 const Perform = ({workout}) => {
   const [time, setTime] = useState(0)
@@ -15,7 +16,7 @@ const Perform = ({workout}) => {
         time={time}
         setTime={setTime}/>
       <Carrousel exercices={workout.exercices} />
-      <Link to={"/workout-of-the-day/save"}>Fin de seance Aller Sauvegarder ma perfomance</Link>
+      <Link className='button__custom' to={"/workout-of-the-day/save"}>Fin de seance Aller Sauvegarder ma perfomance</Link>
     </>
   )
 }

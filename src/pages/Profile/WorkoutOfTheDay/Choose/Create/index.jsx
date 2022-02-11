@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useFetch } from '../../../../../hooks/useFetch';
 import Cart from '../../../../../components/Cart';
 import ShowExercices from '../../../../../components/ShowExercices';
+import './index.scss';
 
 const Create = ({ workout, saveWorkout }) => {
   const { responseData:data, get} = useFetch(true);
@@ -31,8 +32,8 @@ const Create = ({ workout, saveWorkout }) => {
       <Cart workout={workout} saveWorkout={saveWorkout}/>
       <ul className='list equipements'>
       {data?.map(({equipement}, index) => (
-        <li id={index} key={index} onClick={handleClickOnEquipement}>
-          {equipement.name}
+        <li className='equipement' id={index} key={index} onClick={handleClickOnEquipement}>
+          {equipement.name} {equipement.weight ? `${equipement.weight} kg` : "" }
         </li>
       ))}
       </ul>

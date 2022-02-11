@@ -1,0 +1,22 @@
+@import '../../../../../config/config.scss';
+
+
+ul.list__wods {
+  li.wod {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    p {
+      font-size: 14px;
+      color: $color-red;
+    }
+    h2 {
+      margin: 1rem 0;
+      color: $color-orange;
+    }
+    .button__custom {
+      align-self: flex-end;
+    }
+  }
+}

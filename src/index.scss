@@ -81,8 +81,24 @@ h5 {
   min-height: 91vh;
 }
 
+
+.flex__entrainement {
+  display: flex;
+  align-items: center;
+  padding: 0 24% 0 24%;
+  justify-content:flex-start;
+  flex-direction: column;
+  min-height: 91vh;
+}
+
+@media screen and (max-width: 1400px) {
+  .flex__entrainement {
+    padding: 0 10rem 0 320px;
+  }
+}
+
 @media screen and (max-width: 1150px) {
-  .flex__profile {
+  .flex__profile, .flex__entrainement {
     padding: 4rem 2rem;
   }
 }

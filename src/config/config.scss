@@ -63,6 +63,7 @@ $font-content: 'Lato', sans-serif;
             transform: translateX(0);
   }
 }
+
 .slide__left {
   -webkit-animation: slide-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: slide-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -87,5 +88,32 @@ $font-content: 'Lato', sans-serif;
   100% {
     -webkit-transform: translateX(0);
             transform: translateX(0);
+  }
+}
+
+.slide__left__quit {
+  -webkit-animation: slide-left-quit 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-left-quit 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-left-quit {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+}
+
+@keyframes slide-left-quit {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
   }
 }

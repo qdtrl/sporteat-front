@@ -1,4 +1,9 @@
 import { useState, useEffect } from 'react';
+import { 
+  MdPlayArrow,
+  MdPause,
+  MdReplay } from 'react-icons/md';
+import './index.scss';
 
 const Timer = ({play, time, setTime, setPlay}) => {
   const [secondes, setSecondes] = useState(0);
@@ -34,19 +39,20 @@ const Timer = ({play, time, setTime, setPlay}) => {
     setPlay(false)
   }
   return (
-    <>
-      <h2>{time}</h2>
-      <h2>
+    <div className='timer'>
+      <p>
         {minutes > 9 ? minutes : `0${minutes}`}:
         {secondes > 9 ? secondes : `0${secondes}`}
-      </h2>
-      <button onClick={() => setPlay(!play)} >
-          { play ? "Pause" : "Start"}
+      </p>
+      <div className='controls__timer'>
+        <button onClick={() => setPlay(!play)} >
+          { play ? <MdPause className='pause'/> : <MdPlayArrow className='play'/>}
         </button>
         <button onClick={handleReset} >
-          Reset
+          <MdReplay className='reset'/>
         </button>
-    </>
+      </div>
+    </div>
   )
 }
 

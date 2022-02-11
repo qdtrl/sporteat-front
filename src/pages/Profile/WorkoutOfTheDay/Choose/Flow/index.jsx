@@ -2,6 +2,7 @@ import { useEffect,useState } from 'react';
 import { useFetch } from '../../../../../hooks/useFetch';
 import Cart from '../../../../../components/Cart';
 import ShowExercices from '../../../../../components/ShowExercices';
+import './index.scss';
 
 const Flow = ({ workout, saveWorkout }) => {
   const { responseData:data, get} = useFetch(true);
@@ -27,10 +28,12 @@ const Flow = ({ workout, saveWorkout }) => {
   return (
     <>
       <Cart workout={workout} saveWorkout={saveWorkout}/>
-      <button name="upper-body" onClick={handleOnClick}>Haut du corps</button>
-      <button name="lower-body" onClick={handleOnClick}>Bas du corps</button>
-      <button name="hit" onClick={handleOnClick}>Cardio</button>
-      <button name="gymnastic" onClick={handleOnClick}>Gymnastique</button>
+      <div className='flow__buttons'>
+        <button className='button__custom' name="upper-body" onClick={handleOnClick}>Haut du corps</button>
+        <button className='button__custom' name="lower-body" onClick={handleOnClick}>Bas du corps</button>
+        <button className='button__custom' name="hit" onClick={handleOnClick}>Cardio</button>
+        <button className='button__custom' name="gymnastic" onClick={handleOnClick}>Gymnastique</button>
+      </div>
       {data && <ul className='list exercices'>
         <ShowExercices 
           equipement={data.equipement} 
@@ -38,7 +41,7 @@ const Flow = ({ workout, saveWorkout }) => {
           performance={data.performance} 
           AddExercice={AddExercice} /> 
       </ul>}
-      { exerciceType && <button onClick={() => setReload(!reload)}>
+      { exerciceType && <button className='button__custom' onClick={() => setReload(!reload)}>
           Autre exercice de {exerciceType}
         </button>}
     </>

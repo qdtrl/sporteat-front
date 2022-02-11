@@ -6,7 +6,7 @@ import {
 import Create from './Create';
 import Flow from './Flow';
 import Improve from './Improve';
-
+import './index.scss';
 const Choose = ({workout, saveWorkout}) => {
   const location = useLocation().pathname;
 
@@ -28,7 +28,7 @@ const Choose = ({workout, saveWorkout}) => {
 		<>
 			<h1>Que faisont nous pour la seance d'aujourd'hui ?</h1>
 			<p>Noublie pas d'ajouter le nouveau materiel que tu peux utiliser pour ton entrainement</p>
-			<nav>
+			<nav className='entrainement'>
 				{entrainements.map(({url, title}, index) => (
 					<Link key={index} className={`link ${location === url ? "active" : ""}`} to={url}>
 						{title}

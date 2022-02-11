@@ -1,0 +1,17 @@
+@import '../../config/config.scss';
+
+div.carroussel {
+  margin-top: 200px;
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  div.description {
+    background-color: $color-white;
+    border-radius: 14px;
+    padding: 2rem;
+    p {
+      color: $color-black;
+    }
+  }
+}

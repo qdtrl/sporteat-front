@@ -1,0 +1,38 @@
+@import '../../config/config.scss';
+
+.timer {
+  background-color: $color-orange;
+  padding: 2rem;
+  border-radius: 12px;
+  position: absolute;
+  top: 2rem;
+  p {
+    font-size: 80px;
+    color: $color-white;
+  }
+  div.controls__timer {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-around;
+    button {
+      padding: 1rem;
+      border-radius: 50%;
+      border: none;
+      background-color: rgba($color-black, 0.3);
+      &:hover {
+        background-color: rgba($color-black, 0.5);
+      }
+      .play, 
+      .reset, 
+      .pause {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .timer {
+    top: 6rem;
+  }
+}

@@ -8,6 +8,7 @@ import Choose from "./Choose";
 import Validation from './Validation';
 import Perform from "./Perform";
 import Save from './Save';
+import './index.scss';
 
 const WorkoutOfTheDay = () => {
 	const getWorkout = () => {
@@ -28,7 +29,7 @@ const WorkoutOfTheDay = () => {
 	}, [])
 
   return (
-    <section className="workout_of_the_day">
+    <section className="workout_of_the_day flex__entrainement">
       <Switch>
 				<Route path="/workout-of-the-day/choose">
 					<Choose workout={workout} saveWorkout={saveWorkout}/>

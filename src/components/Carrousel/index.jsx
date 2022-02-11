@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import './index.scss';
 
 const Carrousel = ({exercices}) => {
   const [indexCarroussel, setIndexCarrousel ] = useState(0);
@@ -19,15 +19,18 @@ const Carrousel = ({exercices}) => {
   }
   return (
     <>
-      { exercices && <>
-      <button onClick={handleClickLeftArrow}>{'<'}</button>
-        <p>{exercices[indexCarroussel].exercice.name}</p> 
-        <p>{exercices[indexCarroussel].equipement.name}</p>
-        <p> 
-          {exercices[indexCarroussel].performance.repetitions} reps X {exercices[indexCarroussel].performance.rounds} trs
-        </p>
-        <p>{exercices[indexCarroussel].performance.poids}</p> 
-      <button onClick={handleClickRightArrow}>{'>'}</button> </>}
+      { exercices && <div className='carroussel'>
+        <button className='button__custom' onClick={handleClickLeftArrow}>{'<'}</button>
+        <div className='description'>
+          <p>{exercices[indexCarroussel].exercice.name}</p> 
+          <p>{exercices[indexCarroussel].equipement.name}</p>
+          <p> 
+            {exercices[indexCarroussel].performance.repetitions} reps X {exercices[indexCarroussel].performance.rounds} trs
+          </p>
+          <p>{exercices[indexCarroussel].performance.poids}</p> 
+        </div>
+        <button className='button__custom' onClick={handleClickRightArrow}>{'>'}</button> 
+      </div>}
     </>
   )
 }

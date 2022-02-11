@@ -1,0 +1,12 @@
+@import '../../../../../config/config.scss';
+
+div.flow__buttons {
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  button {
+    margin:  0.1rem 0.5rem;
+  }
+}

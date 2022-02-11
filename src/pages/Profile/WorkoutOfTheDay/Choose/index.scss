@@ -1,22 +1,32 @@
-nav {
-  width: 50%;
-  background-color: $color-black-darker;
+@import '../../../../config/config.scss';
+
+nav.entrainement {
   display: flex;
   justify-content: space-around;
+  width: 100%;
+  background-color: rgba($color-orange, 0.5);
+  border-radius: 50px;
   .link {
     padding: 0.8rem;
     width: 100%;
     text-align: center;
-    border: 1px solid black;
+    border-radius: 50px;
     &:hover {
-      color: blue;
+      color: $color-grey;
     }
     &.active {
-      background-color: blue;
+      background-color: $color-white;
+      color: $color-orange;
     }
   }
-  a {
-    color: white;
-    text-decoration: none;
+}
+
+@media screen and (max-width: 810px) {
+  nav.entrainement {
+    flex-direction: column;
+    border-radius: 20px;
+    .link {
+      border-radius: 65px;
+    }
   }
 }

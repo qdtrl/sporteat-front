@@ -1,34 +1,27 @@
+@import '../../../../../config/config.scss';
+
 ul {
   &.list {
-  width: 53%;
-  list-style: none;
-  &.exercices {
-    li {
-      background-color: blue;
-    }
-  }
-  &.equipements {
-    li {
-      &:hover {
-        background-color: #021444d8;
+    list-style: none;
+    width: 100%;
+    &.equipements {
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      li.equipement {
+        width: 200px;
+        color: $color-white;
+        background-color: $color-orange;
+        padding: 1rem;
+        border-radius: 50px;
+        margin:  0.1rem 0.5rem;
+        &:hover {
+          background-color: $color-white;
+          color: $color-orange;
+        }
       }
     }
   }
-  li {
-    margin-right: 2.5rem;
-    padding: 1.2rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    border: solid 1px #021c63d8;
-    background-color: #021c63d8;
-    label {
-      margin-left: 1rem;
-      margin-right: 0.5rem;
-    }
-    input {
-      width: 35px;
-      text-align: right;
-    }
-  }
-}
 }

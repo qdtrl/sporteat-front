@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useFetch } from "../../../../../hooks/useFetch";
 import ShowExercices from '../../../../../components/ShowExercices';
+import './index.scss';
 
 const Improve = ({ saveWorkout }) => {
   const { responseData:data, get} = useFetch(true);
@@ -20,11 +21,11 @@ const Improve = ({ saveWorkout }) => {
 
   return (
     <>
-      <ul className='list wods'>
+      <ul className='list__wods'>
         {data?.map(({wod, exercices}, index) => (
-          <div key={index}>
+          <li className='wod' key={index}>
             <h2>{wod.name}</h2>
-            <p>{wod.calories}</p>
+            <p>{wod.calories} calories</p>
             { exercices.map(({equipement, exercice, performance}, index) => (
               <ShowExercices
                 key={index}
@@ -36,10 +37,10 @@ const Improve = ({ saveWorkout }) => {
               id={index} 
               onClick={handleClick} 
               to="/workout-of-the-day/perform" 
-              className='validate'>
+              className='button__custom'>
                 Refaire cette seance
             </Link>
-          </div>
+        </li>
         ))}
       </ul>
     </>

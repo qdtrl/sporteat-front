@@ -1,8 +1,15 @@
+@import '../../../config/config.scss';
+
 section.workout_of_the_day {
-  margin: 5% 0;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color: $color-white;
+  p {
+    color: $color-white;
+    margin: 0.5rem;
+  }
+  h1 {
+    margin-top: 4rem;
+    color: $color-orange;
+    font-size: 35px;
+    line-height: normal;
+  }
 }

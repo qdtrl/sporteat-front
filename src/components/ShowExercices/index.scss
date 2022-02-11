@@ -1,0 +1,46 @@
+@import '../../config/config.scss';
+
+li.exercice {
+  form {
+    justify-content: space-between;
+  }
+  background-color: $color-white;
+  border-radius: 8px;
+  color: $color-orange;
+  padding: 0rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  .duo {
+    display: flex;
+    flex-direction: column;
+    label {
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    input {
+      width: 50px;
+      padding: 0.5rem 0.1rem;
+      text-align: center;
+      background-color: $color-lighter-grey;
+      border: 1px solid $color-grey;
+      border-radius: 6px;
+    }
+  }
+  button {
+    background-color: $color-white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0.4rem;
+    &:hover {
+      background-color: $color-grey;
+    }
+    .addtoshop {
+      font-size: 24px;
+      color: red;
+    }
+
+  }
+}
