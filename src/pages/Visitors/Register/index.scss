@@ -15,16 +15,19 @@ section.signup {
     text-align: center;
     h2 {
       text-align: center;
+      margin: 1rem 0;
       font-size: 37px;
       color: $color-orange;
     }
-    form {
+    form.register {
+      margin: 0;
       display: flex;
       flex-direction: column;
       text-align: left;
       color: $color-white;
       text-transform: uppercase;
       label {
+        width: 100%;
         font-size: 14px; 
         line-height: 30px;
       }

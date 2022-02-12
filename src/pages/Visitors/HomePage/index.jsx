@@ -45,7 +45,7 @@ const HomePage = () => {
 		</section>
 		<Register />
 		<section className="contactus padding bg-meal flex__center">
-			<form>
+			<form className="contactus">
 				<h2>Nous contacter</h2>
 				<div className="details">
 					<div className="half">

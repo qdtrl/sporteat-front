@@ -73,7 +73,8 @@ const Login = () => {
 			<div className="bg">
 				<h2>Connexion</h2>
 				<div className='form-container'>
-				<form onSubmit={handleLogin}>
+				<form className='register' onSubmit={handleLogin}>
+					<label>Votre e-mail</label>
 					<input 
 						type="email"
 						placeholder=' Email'
@@ -82,6 +83,7 @@ const Login = () => {
 						value={userLogin.email}
 						className="input"
 					/>	
+					<label>Mot de passe</label>
 					<input 
 						type="password"
 						placeholder=' Mot de passe'

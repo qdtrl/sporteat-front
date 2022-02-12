@@ -1,8 +1,9 @@
 import { FC } from "react";
+import './index.scss';
 
 const MealPresentation:FC = () => {
   return (
-    <section className="meal_presentation">
+    <section className="meal_presentation flex__center padding">
       <h1>Les repas</h1>
       <h2>Notre unique objectif : vous mangez nous nous occupons du reste !</h2>
       <p>L'alimentation dans le sport est le carburant de votre voiture. 

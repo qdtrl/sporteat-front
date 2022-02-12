@@ -1,8 +1,9 @@
 import { FC } from "react";
+import './index.scss';
 
 const SportPresentation:FC = () => {
   return (
-    <section className="sport_presentation">
+    <section className="sport_presentation flex__center padding">
       <h1>Le sport</h1>
       <h2>La facilite de rentrer ses seances et de suivres ses performances</h2>
       <p>Les premieres seances seances seront un peu longue a rentrer puis avec le temps il

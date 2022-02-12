@@ -85,7 +85,7 @@ const Register = () => {
 				<div className="bg">
 					<h2>Inscription</h2>
 					<div className='form-container'>
-					<form onSubmit={handleSubmit}>
+					<form className='register' onSubmit={handleSubmit}>
 						<label>Votre prenom</label>
 						<input 
 							type="text"

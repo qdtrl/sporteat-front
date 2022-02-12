@@ -92,7 +92,7 @@ section {
 		}
 	}
 	&.contactus {
-		form {
+		form.contactus {
 			h2 {
 				color: $color-orange;
 				margin-bottom: 1rem;
@@ -120,6 +120,7 @@ section {
 				color: $color-white;
 			}
 			div.details {
+				width: 100%;
 				display: flex;
 				justify-content: space-between;
 				div.half {
