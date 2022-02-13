@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './index.scss';
 
 const Validation = ({workout, saveWorkout}) => {
   const handleChange = (e) => {
@@ -14,55 +15,56 @@ const Validation = ({workout, saveWorkout}) => {
   }
 
   return (
-    <>
+    <section className='validation-workout flex__profile'>
       <h1>Verifier la seance !</h1>
-      <div>
-        <Link to="/workout-of-the-day/choose">Retourner choisir d'autres exercices</Link>
-        { workout.exercices.length !== 0 && <Link to="/workout-of-the-day/perform">C'est parti !</Link> }
-      </div>
+      <Link className='button__custom' to="/workout-of-the-day/choose">Retourner choisir</Link>
       { workout.exercices.length !== 0 && <div>
         <h2>{workout.wod?.name} - {workout.wod?.calories} calories</h2>
         <h3>L'équipement necessaire</h3>
         <ul>
         { workout?.exercices?.map(({equipement}, index) => (
-          <li key={index}>{equipement.name}</li>
+          <li className='equipement' key={index}>{equipement.name}</li>
         ))}
         </ul>
         <h3>Les exercices</h3>
         <ul>
         { workout?.exercices?.map(({equipement, exercice, performance}, index) => (
-          <li id={index} key={index}>
-            {exercice.name}
-            {equipement.id !== 1 && <><label>poids</label>
+          <li className='exercice' id={index} key={index}>
+            <p>{exercice.name}</p>
+            {equipement.id !== 1 && <div className='duo'><label>poids</label>
             <input
               id={index} 
               type="number"
               name="weight"
               onChange={handleChange}
               value={performance.weight}
-              min="0"/></>}
-            <label>repetitions</label>
-            <input
-              id={index}
-              type="number"
-              name="repetitions"
-              onChange={handleChange}
-              value={performance.repetitions}
-              min="1"/>
-            <label>tours</label>
-            <input 
-              id={index}
-              type="number" 
-              name="rounds" 
-              onChange={handleChange}
-              value={performance.rounds}
-              min="1"/>
+              min="0"/></div>}
+            <div className='duo'>
+              <label>repetitions</label>
+              <input
+                id={index}
+                type="number"
+                name="repetitions"
+                onChange={handleChange}
+                value={performance.repetitions}
+                min="1"/>
+            </div>
+            <div className='duo'>
+              <label>tours</label>
+              <input 
+                id={index}
+                type="number" 
+                name="rounds" 
+                onChange={handleChange}
+                value={performance.rounds}
+                min="1"/>
+            </div>
           </li>
         ))}
         </ul>
-        <Link to="/workout-of-the-day/perform">C'est parti !</Link>
+        { workout.exercices.length !== 0 && <Link className='button__custom' to="/workout-of-the-day/perform">C'est parti !</Link> }
       </div> }
-    </>
+    </section>
   )
 }
 

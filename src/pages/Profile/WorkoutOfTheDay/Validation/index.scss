@@ -1,0 +1,64 @@
+@import '../../../../config/config.scss';
+
+section.validation-workout {
+  h1, h2, h3 {
+    color: $color-white;
+  }
+  
+  .button__custom {
+    margin: 1rem 0;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    li.equipement {
+      margin: 1rem 0;
+      width: 70%;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;      
+      background-color: $color-white;
+    }
+    li.exercice {
+      background-color: $color-white;
+      border-radius: 8px;
+      p {color: $color-orange;}
+      padding: 0.4rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      .duo {
+        display: flex;
+        flex-direction: column;
+        label {
+          text-transform: uppercase;
+          font-size: 14px;
+        }
+        input {
+          width: 50px;
+          padding: 0.5rem 0.1rem;
+          text-align: center;
+          background-color: $color-lighter-grey;
+          border: 1px solid $color-grey;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  section.validation-workout {
+    h1,h2,h3 {
+      font-size: 1rem;
+    }
+    ul li.exercice {
+      padding: 0.2rem 0.4rem;
+      div.duo label {
+      font-size: 10px;
+      }
+    }
+  }
+}
