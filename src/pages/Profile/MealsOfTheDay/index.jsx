@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useFetch } from '../../../hooks/useFetch'
 import Menu from '../../../components/Repas';
+import Loader from '../../../components/Loader';
 import './index.scss';
 
 const MealsOfTheDay = () => {
@@ -15,9 +16,9 @@ const MealsOfTheDay = () => {
   
   return (
     <>
-      { (!Mod && isLoading) && <p>2 sec ça charge</p>}
-      { Mod && 
       <div className="menu-of-the-day flex__profile"> 
+      { (!Mod && isLoading) && <Loader/>}
+      { Mod && <>
         <h1>Menus du jour</h1>
         <p>Objectif de la journée : {Mod.calories} calories</p> 
           { Mod.meals.map((meal, index) => (
@@ -26,8 +27,8 @@ const MealsOfTheDay = () => {
                 key={index}
               />
           ))}
+          </>}
       </div>
-}
     </>
   )
 }

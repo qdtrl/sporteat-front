@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from "react";
+import Loader from "../../../../components/Loader";
 import { useFetch } from '../../../../hooks/useFetch';
 import './index.scss';
 
@@ -26,8 +27,8 @@ const  MyEquipement = () => {
   const [myEquipement, setMyEquipement] = useReducer(reducer, []);
   const [allEquipement, setAllEquipement] = useReducer(reducer, []);
 
-  const {get, responseData:dataUserEquipement, error:errorUser} = useFetch(true);
-  const {get:getall, responseData:dataAllEquipement, error:errorAll} = useFetch(true);
+  const { isLoading:isLoadingUser, get, responseData:dataUserEquipement, error:errorUser} = useFetch(true);
+  const { isLoading:isLoadingAll, get:getall, responseData:dataAllEquipement, error:errorAll} = useFetch(true);
   const { patch, destroy} = useFetch(true);
 
   useEffect(() => {
@@ -69,6 +70,7 @@ const  MyEquipement = () => {
     <div className="equipements">
       <ul className="equipement-items">
         <label>L'équipement que je possede : </label>
+        { isLoadingUser && <Loader/> }
         {myEquipement?.map((equipement, index) => (
           <li 
             className="equipement-item"
@@ -81,6 +83,7 @@ const  MyEquipement = () => {
       </ul>
       <ul className="equipement-items">
         <label>Tout les équipements de nos exercices :</label>
+        { isLoadingAll && <Loader/> }
         {allEquipement?.map((equipement, index) => (
           <li
             className="equipement-item" 

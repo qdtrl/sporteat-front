@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { useFetch } from "../../../../../hooks/useFetch";
 import ShowExercices from '../../../../../components/ShowExercices';
 import './index.scss';
+import Loader from '../../../../../components/Loader';
 
 const Improve = ({ saveWorkout }) => {
-  const { responseData:data, get} = useFetch(true);
+  const { isLoading, responseData:data, get} = useFetch(true);
   
   useEffect(() => {
     get(`/wods`)
@@ -22,6 +23,7 @@ const Improve = ({ saveWorkout }) => {
   return (
     <>
       <ul className='list__wods'>
+        { isLoading && <Loader/> }
         {data?.map(({wod, exercices}, index) => (
           <li className='wod' key={index}>
             <h2>{wod.name}</h2>

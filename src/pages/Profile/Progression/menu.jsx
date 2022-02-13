@@ -1,5 +1,4 @@
 const Menu = ({ exercices, weights, userChoices, setUserChoices }) => {
-
 	return (
 		<div className="menu">
 			<div>

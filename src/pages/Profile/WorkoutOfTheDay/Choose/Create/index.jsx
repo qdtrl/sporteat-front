@@ -3,9 +3,10 @@ import { useFetch } from '../../../../../hooks/useFetch';
 import Cart from '../../../../../components/Cart';
 import ShowExercices from '../../../../../components/ShowExercices';
 import './index.scss';
+import Loader from '../../../../../components/Loader';
 
 const Create = ({ workout, saveWorkout }) => {
-  const { responseData:data, get} = useFetch(true);
+  const { isLoading, responseData:data, get} = useFetch(true);
   const [indexShowExercices, setIndexShowExercices] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Create = ({ workout, saveWorkout }) => {
 
   return (
     <>
+      { isLoading && <Loader/> }
       <Cart workout={workout} saveWorkout={saveWorkout}/>
       <ul className='list equipements'>
       {data?.map(({equipement}, index) => (

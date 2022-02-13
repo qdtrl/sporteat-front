@@ -7,8 +7,10 @@ import {
 	CartesianGrid,
 	XAxis,
 	YAxis } from 'recharts';
+import Loader from "../../../components/Loader";
 import { useFetch } from "../../../hooks/useFetch";
 import Menu from './menu';
+import './index.scss';
 
 const Progression = () => {
 	const [ userChoices, setUserChoices] = useState(
@@ -20,7 +22,7 @@ const Progression = () => {
 	const [performances, setPerformances] = useState();
 	const [ weights, setWeights ] = useState();
 	const [exercices, setExercices] = useState();
-	const { responseData, get } = useFetch(true);
+	const { isLoading, responseData, get } = useFetch(true);
 
 	useEffect(() => {
 		get("/my_performances")
@@ -74,8 +76,9 @@ const Progression = () => {
 	}, [responseData, userChoices])
 
 	return(
-		<section className="chart">
-			<Menu
+		<section className="chart flex__profile">
+			{ isLoading && <Loader/> }
+			{ (responseData && !isLoading ) && <><Menu
 				exercices={exercices}
 				weights={weights}
 				userChoices={userChoices}
@@ -94,7 +97,7 @@ const Progression = () => {
 					<XAxis dataKey="created_at" />
 					<YAxis dataKey="weight"/>
 				</LineChart>
-			</div>
+			</div> </>}
 		</section>
 	)
 }

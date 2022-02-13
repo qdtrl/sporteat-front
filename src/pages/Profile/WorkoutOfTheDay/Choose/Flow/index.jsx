@@ -2,10 +2,11 @@ import { useEffect,useState } from 'react';
 import { useFetch } from '../../../../../hooks/useFetch';
 import Cart from '../../../../../components/Cart';
 import ShowExercices from '../../../../../components/ShowExercices';
+import Loader from '../../../../../components/Loader';
 import './index.scss';
 
 const Flow = ({ workout, saveWorkout }) => {
-  const { responseData:data, get} = useFetch(true);
+  const { isLoading, responseData:data, get} = useFetch(true);
   const [exerciceType, setExerciceType] = useState(false);
   const [reload, setReload] = useState(false);
 
@@ -34,14 +35,15 @@ const Flow = ({ workout, saveWorkout }) => {
         <button className='button__custom' name="hit" onClick={handleOnClick}>Cardio</button>
         <button className='button__custom' name="gymnastic" onClick={handleOnClick}>Gymnastique</button>
       </div>
-      {data && <ul className='list exercices'>
+      { isLoading && <Loader /> }
+      {(data && !isLoading ) && <ul className='list exercices'>
         <ShowExercices 
           equipement={data.equipement} 
           exercice={data.exercice} 
           performance={data.performance} 
           AddExercice={AddExercice} /> 
       </ul>}
-      { exerciceType && <button className='button__custom' onClick={() => setReload(!reload)}>
+      { exerciceType && <button className='button__custom flow-another' onClick={() => setReload(!reload)}>
           Autre exercice de {exerciceType}
         </button>}
     </>
