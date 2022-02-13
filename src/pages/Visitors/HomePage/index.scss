@@ -92,6 +92,7 @@ section {
 		}
 	}
 	&.contactus {
+		padding: 0;
 		form.contactus {
 			h2 {
 				color: $color-orange;
@@ -120,6 +121,7 @@ section {
 				color: $color-white;
 			}
 			div.details {
+				padding: 0;
 				width: 100%;
 				display: flex;
 				justify-content: space-between;
@@ -130,7 +132,7 @@ section {
 				}
 			}
 			div.full {
-				width: 100%;
+				width: 96%;
 			}
 			.button__custom {
 				width: 50%;
@@ -168,14 +170,15 @@ section {
   .overlay {
     font-size: 1rem;
   }
-	section.contactus form {
+	section.contactus form.contactus {
 		div.details {
-		width: 100%;
-		flex-direction: column;
-		div.half {
-			width: 100%;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			div.half {
+				width: 100%;
+			}
 		}
-	}
 		.button__custom {
 			width: 100%;
 		}

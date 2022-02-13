@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT } from '../../../../stores/actions';
 import { 
@@ -14,11 +14,13 @@ import './index.scss';
 
 const SideNavBar = () => {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const user = useSelector((state) => state);
 	const [ toggleMenu, setToggleMenu ] = useState(false);
 
 	const handleLogout = () => {
 		dispatch( { type: LOGOUT } );
+		history.push(`/`);
 	};
 
 	return (
