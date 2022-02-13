@@ -1,6 +1,11 @@
 @import '../../../../config/config.scss';
 
 
+
 .button__custom {
     background-color: $color-blue;
+}
+
+form.compute {
+margin: 0;
 }

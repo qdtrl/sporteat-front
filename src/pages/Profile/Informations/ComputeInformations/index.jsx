@@ -66,7 +66,7 @@ const ComputeInformations = () => {
 	return (
 		<>
 			<h2>{firstTime ? "Rentrer" : "Modifier"} les champs pour les calculs des repas</h2>
-			<form onSubmit={handleSubmit}>
+			<form className='compute' onSubmit={handleSubmit}>
 					<div className='half'>
 						<label htmlFor='age'> Votre âge ?</label>
 						<input 

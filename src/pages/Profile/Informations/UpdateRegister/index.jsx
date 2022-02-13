@@ -65,7 +65,7 @@ const UpdateRegister = () => {
 	return (
 		<>
 			<h2>Modifier mes paramètres</h2>
-			<form onSubmit={handleSubmit}>
+			<form className='settings' onSubmit={handleSubmit}>
 				<div className="half">
 					<label>Prenom</label>
 					<input 
