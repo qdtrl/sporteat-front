@@ -86,6 +86,7 @@ const Login = () => {
 					<label>Mot de passe</label>
 					<input 
 						type="password"
+						autoComplete="current-password"
 						placeholder=' Mot de passe'
 						onChange={handleChange}
 						name="password"
@@ -101,7 +102,7 @@ const Login = () => {
 				</div>
 				<p className='__signup'>Pas encore de compte ? <Link 
 					className="signup" 
-					to="/login">
+					to="/signup">
 						Creer un compte
 					</Link>
 				</p>

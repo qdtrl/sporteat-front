@@ -114,8 +114,9 @@ const Register = () => {
 							className="input"
 						/>	
 						<label>Mot de passe</label>
-						<input 
+						<input
 							type="password"
+							autoComplete='new-password' 
 							placeholder='Mot de passe'
 							onChange={handleChange}
 							name="password"
@@ -125,6 +126,7 @@ const Register = () => {
 						<label>Mot de passe confirmation</label>
 						<input 
 							type="password"
+							autoComplete='new-password'
 							placeholder='Confirmez le mot de passe'
 							onChange={handleChange}
 							name="passwordConfirmation"
